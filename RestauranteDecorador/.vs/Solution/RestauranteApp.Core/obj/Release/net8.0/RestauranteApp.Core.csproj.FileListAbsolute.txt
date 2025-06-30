@@ -1,0 +1,12 @@
+C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\1_Restaurante_Decorador\.vs\Solution\RestauranteApp.Core\bin\Release\net8.0\RestauranteApp.Core.deps.json
+C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\1_Restaurante_Decorador\.vs\Solution\RestauranteApp.Core\bin\Release\net8.0\RestauranteApp.Core.dll
+C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\1_Restaurante_Decorador\.vs\Solution\RestauranteApp.Core\bin\Release\net8.0\RestauranteApp.Core.pdb
+C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\1_Restaurante_Decorador\.vs\Solution\RestauranteApp.Core\obj\Release\net8.0\RestauranteApp.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\1_Restaurante_Decorador\.vs\Solution\RestauranteApp.Core\obj\Release\net8.0\RestauranteApp.Core.AssemblyInfoInputs.cache
+C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\1_Restaurante_Decorador\.vs\Solution\RestauranteApp.Core\obj\Release\net8.0\RestauranteApp.Core.AssemblyInfo.cs
+C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\1_Restaurante_Decorador\.vs\Solution\RestauranteApp.Core\obj\Release\net8.0\RestauranteApp.Core.csproj.CoreCompileInputs.cache
+C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\1_Restaurante_Decorador\.vs\Solution\RestauranteApp.Core\obj\Release\net8.0\RestauranteApp.Core.sourcelink.json
+C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\1_Restaurante_Decorador\.vs\Solution\RestauranteApp.Core\obj\Release\net8.0\RestauranteApp.Core.dll
+C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\1_Restaurante_Decorador\.vs\Solution\RestauranteApp.Core\obj\Release\net8.0\refint\RestauranteApp.Core.dll
+C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\1_Restaurante_Decorador\.vs\Solution\RestauranteApp.Core\obj\Release\net8.0\RestauranteApp.Core.pdb
+C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\1_Restaurante_Decorador\.vs\Solution\RestauranteApp.Core\obj\Release\net8.0\ref\RestauranteApp.Core.dll

@@ -1,0 +1,57 @@
+Estructura del directorio: C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\3_Strategy\StrategyPelea
+
+StrategyPelea
+├── StrategyPelea
+│   ├── Aikido.cs
+│   ├── Boxeo.cs
+│   ├── Capoeira.cs
+│   ├── Form1.Designer.cs
+│   ├── Form1.cs
+│   ├── Form1.resx
+│   ├── Golpe.cs
+│   ├── IEstrategia.cs
+│   ├── Imagenes
+│   │   ├── Aikido.jpg
+│   │   ├── Boxeo.jpg
+│   │   ├── Capoeira.jpg
+│   │   ├── Judo.jpg
+│   │   ├── Karate.jpg
+│   │   ├── Kung Fu.jpg
+│   │   ├── Sambo.jpg
+│   │   ├── Sumo.jpg
+│   │   ├── Taekwondo.jpg
+│   │   ├── Wushu.jpg
+│   ├── Judo.cs
+│   ├── Karate.cs
+│   ├── KungFu.cs
+│   ├── Peleador.cs
+│   ├── Program.cs
+│   ├── Sambo.cs
+│   ├── StrategyPelea.csproj
+│   ├── StrategyPelea.csproj.user
+│   ├── Sumo.cs
+│   ├── Taekwondo.cs
+│   ├── Wushu.cs
+├── StrategyPelea.sln
+├── tree_custom_files_COMPLETO.txt
+├── tree_with_content_COMPLETO.txt
+
+================================================================================
+CONTENIDO DE ARCHIVOS ESPECÍFICOS
+================================================================================
+
+PreciosConstants.java: [Archivo no encontrado]
+
+
+DecoradoresSandwich.java: [Archivo no encontrado]
+
+
+SandwichDecorator.java: [Archivo no encontrado]
+
+
+TamanoSandwich.java: [Archivo no encontrado]
+
+
+TipoProteina.java: [Archivo no encontrado]
+
+

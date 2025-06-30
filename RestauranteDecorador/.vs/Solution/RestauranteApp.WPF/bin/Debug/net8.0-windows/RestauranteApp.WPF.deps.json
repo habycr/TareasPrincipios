@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "RestauranteApp.WPF/1.0.0": {
+        "dependencies": {
+          "RestauranteApp.Core": "1.0.0"
+        },
+        "runtime": {
+          "RestauranteApp.WPF.dll": {}
+        }
+      },
+      "RestauranteApp.Core/1.0.0": {
+        "runtime": {
+          "RestauranteApp.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "RestauranteApp.WPF/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RestauranteApp.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

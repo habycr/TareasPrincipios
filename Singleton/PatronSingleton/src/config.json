@@ -1,0 +1,12 @@
+{
+  "defaultCurrency": "CRC",
+  "timeFormat": "24H",
+  "maxConnections": 5,
+  "language": "ES",
+  "autoSaveInterval": 10,
+  "enableLogs": true,
+  "theme": "light",
+  "region": "LATAM",
+  "backupEnabled": false,
+  "backupDirectory": "/backups"
+}

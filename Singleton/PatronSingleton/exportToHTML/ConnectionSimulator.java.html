@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>ConnectionSimulator.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #5f826b; font-style: italic;}
+.s1 { color: #bcbec4;}
+.s2 { color: #cf8e6d;}
+.s3 { color: #bcbec4;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+.s6 { color: #7a7e85;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+ConnectionSimulator.java</font>
+</center></td></tr></table>
+<pre><span class="s0">/**</span>
+ <span class="s0">* Simulador de conexiones que utiliza parámetros de configuración.</span>
+ <span class="s0">*/</span>
+<span class="s2">public class </span><span class="s1">ConnectionSimulator </span><span class="s3">{</span>
+    <span class="s2">private final </span><span class="s1">ConfigurationManager configManager</span><span class="s3">;</span>
+
+    <span class="s2">public </span><span class="s1">ConnectionSimulator</span><span class="s3">() {</span>
+        <span class="s2">this</span><span class="s3">.</span><span class="s1">configManager </span><span class="s3">= </span><span class="s1">ConfigurationManager</span><span class="s3">.</span><span class="s1">getInstance</span><span class="s3">();</span>
+    <span class="s3">}</span>
+
+    <span class="s2">public void </span><span class="s1">runSimulation</span><span class="s3">() {</span>
+        <span class="s2">int </span><span class="s1">maxConnections </span><span class="s3">= ((</span><span class="s1">Number</span><span class="s3">) </span><span class="s1">configManager</span><span class="s3">.</span><span class="s1">getConfigValue</span><span class="s3">(</span><span class="s4">&quot;maxConnections&quot;</span><span class="s3">)).</span><span class="s1">intValue</span><span class="s3">();</span>
+        <span class="s2">boolean </span><span class="s1">enableLogs </span><span class="s3">= (</span><span class="s2">boolean</span><span class="s3">) </span><span class="s1">configManager</span><span class="s3">.</span><span class="s1">getConfigValue</span><span class="s3">(</span><span class="s4">&quot;enableLogs&quot;</span><span class="s3">);</span>
+        <span class="s1">String defaultCurrency </span><span class="s3">= (</span><span class="s1">String</span><span class="s3">) </span><span class="s1">configManager</span><span class="s3">.</span><span class="s1">getConfigValue</span><span class="s3">(</span><span class="s4">&quot;defaultCurrency&quot;</span><span class="s3">);</span>
+
+        <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s4">&quot;</span><span class="s2">\n</span><span class="s4">=== SIMULADOR DE CONEXIONES ===&quot;</span><span class="s3">);</span>
+        <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s4">&quot;Moneda por defecto: &quot; </span><span class="s3">+ </span><span class="s1">defaultCurrency</span><span class="s3">);</span>
+        <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s4">&quot;Intentando establecer &quot; </span><span class="s3">+ </span><span class="s1">maxConnections </span><span class="s3">+ </span><span class="s4">&quot; conexiones...</span><span class="s2">\n</span><span class="s4">&quot;</span><span class="s3">);</span>
+
+        <span class="s2">for </span><span class="s3">(</span><span class="s2">int </span><span class="s1">i </span><span class="s3">= </span><span class="s5">1</span><span class="s3">; </span><span class="s1">i </span><span class="s3">&lt;= </span><span class="s1">maxConnections</span><span class="s3">; </span><span class="s1">i</span><span class="s3">++) {</span>
+            <span class="s2">try </span><span class="s3">{</span>
+                <span class="s6">// Simular tiempo de conexión</span>
+                <span class="s1">Thread</span><span class="s3">.</span><span class="s1">sleep</span><span class="s3">(</span><span class="s5">500</span><span class="s3">);</span>
+
+                <span class="s2">if </span><span class="s3">(</span><span class="s1">enableLogs</span><span class="s3">) {</span>
+                    <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s4">&quot;Conexión #&quot; </span><span class="s3">+ </span><span class="s1">i </span><span class="s3">+ </span><span class="s4">&quot; establecida con éxito.&quot;</span><span class="s3">);</span>
+                <span class="s3">}</span>
+            <span class="s3">} </span><span class="s2">catch </span><span class="s3">(</span><span class="s1">InterruptedException e</span><span class="s3">) {</span>
+                <span class="s2">if </span><span class="s3">(</span><span class="s1">enableLogs</span><span class="s3">) {</span>
+                    <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s4">&quot;Error en conexión #&quot; </span><span class="s3">+ </span><span class="s1">i </span><span class="s3">+ </span><span class="s4">&quot;: &quot; </span><span class="s3">+ </span><span class="s1">e</span><span class="s3">.</span><span class="s1">getMessage</span><span class="s3">());</span>
+                <span class="s3">}</span>
+            <span class="s3">}</span>
+        <span class="s3">}</span>
+
+        <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s4">&quot;</span><span class="s2">\n</span><span class="s4">Simulación completada. Total de conexiones: &quot; </span><span class="s3">+ </span><span class="s1">maxConnections</span><span class="s3">);</span>
+        <span class="s1">System</span><span class="s3">.</span><span class="s1">out</span><span class="s3">.</span><span class="s1">println</span><span class="s3">(</span><span class="s4">&quot;==================================</span><span class="s2">\n</span><span class="s4">&quot;</span><span class="s3">);</span>
+    <span class="s3">}</span>
+<span class="s3">}</span></pre>
+</body>
+</html>

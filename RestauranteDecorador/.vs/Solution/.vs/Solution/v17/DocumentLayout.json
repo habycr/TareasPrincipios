@@ -1,0 +1,754 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\services\\precioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\services\\precioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\services\\ordenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\services\\ordenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\sandwiches\\sandwichpollo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\sandwiches\\sandwichpollo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\sandwiches\\sandwichpavo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\sandwiches\\sandwichpavo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\sandwiches\\sandwichbeef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\sandwiches\\sandwichbeef.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\sandwiches\\sandwichbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\sandwiches\\sandwichbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\models\\precioadicional.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\models\\precioadicional.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\models\\orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\models\\orden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\models\\detalleorden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\models\\detalleorden.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\interfaces\\isandwich.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\interfaces\\isandwich.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\factories\\sandwichfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\factories\\sandwichfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\enums\\tipoproteina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\enums\\tipoproteina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\enums\\tamanosandwich.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\enums\\tamanosandwich.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\decorators\\verdurasextradecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\decorators\\verdurasextradecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\decorators\\tocinodecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\decorators\\tocinodecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\decorators\\sopadecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\decorators\\sopadecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\decorators\\sandwichdecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\decorators\\sandwichdecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\decorators\\extraquesodecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\decorators\\extraquesodecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\decorators\\dobleproteinadecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\decorators\\dobleproteinadecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\decorators\\aguacatedecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\decorators\\aguacatedecorator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.core\\constants\\preciosconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AC6B9EF4-C4D9-422F-86EB-E8AA50F529D0}|RestauranteApp.Core\\RestauranteApp.Core.csproj|solutionrelative:restauranteapp.core\\constants\\preciosconstants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\views\\sandwichbuilderview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\views\\sandwichbuilderview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\views\\resumenview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\views\\resumenview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\views\\ordenview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\views\\ordenview.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\converters\\booltovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\converters\\booltovisibilityconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\converters\\enumtostringconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\converters\\enumtostringconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\converters\\nombreadicionalconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\converters\\nombreadicionalconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\converters\\priceformatconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\converters\\priceformatconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\helpers\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\helpers\\relaycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\services\\dialogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\services\\dialogservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\viewmodels\\ordenviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\viewmodels\\ordenviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\viewmodels\\resumenviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\viewmodels\\resumenviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\viewmodels\\sandwichbuilderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\viewmodels\\sandwichbuilderviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\views\\sandwichbuilderview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\views\\sandwichbuilderview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\views\\resumenview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\views\\resumenview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\views\\ordenview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\views\\ordenview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\properties\\publishprofiles\\folderprofile.pubxml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\properties\\publishprofiles\\folderprofile.pubxml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|c:\\users\\javier\\onedrive\\documentos\\github\\tareas-patrones---principios\\1_restaurante_decorador\\.vs\\solution\\restauranteapp.wpf\\restauranteapp.wpf.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{7BFEA9EB-79B7-4030-9978-0FA408636CC1}|RestauranteApp.WPF\\RestauranteApp.WPF.csproj|solutionrelative:restauranteapp.wpf\\restauranteapp.wpf.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\8.0.314\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.NET.Sdk.WindowsDesktop.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\8.0.314\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrdenService.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Services\\OrdenService.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Services\\OrdenService.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Services\\OrdenService.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Services\\OrdenService.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAAA5wFQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T07:03:06.933Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PrecioService.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Services\\PrecioService.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Services\\PrecioService.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Services\\PrecioService.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Services\\PrecioService.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAYwBAAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:24:43.315Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SandwichPollo.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Sandwiches\\SandwichPollo.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Sandwiches\\SandwichPollo.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Sandwiches\\SandwichPollo.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Sandwiches\\SandwichPollo.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwCMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:24:14.547Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SandwichPavo.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Sandwiches\\SandwichPavo.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Sandwiches\\SandwichPavo.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Sandwiches\\SandwichPavo.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Sandwiches\\SandwichPavo.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAgwCIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:24:15.513Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SandwichBeef.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Sandwiches\\SandwichBeef.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Sandwiches\\SandwichBeef.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Sandwiches\\SandwichBeef.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Sandwiches\\SandwichBeef.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwCMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:24:05.024Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SandwichBase.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Sandwiches\\SandwichBase.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Sandwiches\\SandwichBase.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Sandwiches\\SandwichBase.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Sandwiches\\SandwichBase.cs",
+              "ViewState": "AQIAAKQAAAAAAAAAAAAkwLsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:23:55.436Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "PrecioAdicional.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Models\\PrecioAdicional.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Models\\PrecioAdicional.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Models\\PrecioAdicional.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Models\\PrecioAdicional.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAkwD4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:23:44.13Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Orden.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Models\\Orden.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Models\\Orden.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Models\\Orden.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Models\\Orden.cs",
+              "ViewState": "AQIAAHwAAAAAAAAAAAAkwJMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:23:34.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DetalleOrden.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Models\\DetalleOrden.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Models\\DetalleOrden.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Models\\DetalleOrden.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Models\\DetalleOrden.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAkwE0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T06:09:05.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ISandwich.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Interfaces\\ISandwich.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Interfaces\\ISandwich.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Interfaces\\ISandwich.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Interfaces\\ISandwich.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAYwDYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:23:15.137Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "SandwichFactory.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Factories\\SandwichFactory.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Factories\\SandwichFactory.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Factories\\SandwichFactory.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Factories\\SandwichFactory.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAkwCUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T01:52:33.459Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "TipoProteina.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Enums\\TipoProteina.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Enums\\TipoProteina.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Enums\\TipoProteina.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Enums\\TipoProteina.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAowB0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:22:31.164Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TamanoSandwich.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Enums\\TamanoSandwich.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Enums\\TamanoSandwich.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Enums\\TamanoSandwich.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Enums\\TamanoSandwich.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:22:23.455Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "VerdurasExtraDecorator.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Decorators\\VerdurasExtraDecorator.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Decorators\\VerdurasExtraDecorator.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Decorators\\VerdurasExtraDecorator.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Decorators\\VerdurasExtraDecorator.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAkwCAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:20:59.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "TocinoDecorator.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Decorators\\TocinoDecorator.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Decorators\\TocinoDecorator.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Decorators\\TocinoDecorator.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Decorators\\TocinoDecorator.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAkwB8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:20:59.768Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "SopaDecorator.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Decorators\\SopaDecorator.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Decorators\\SopaDecorator.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Decorators\\SopaDecorator.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Decorators\\SopaDecorator.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAkwCAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:20:23.207Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "SandwichDecorator.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Decorators\\SandwichDecorator.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Decorators\\SandwichDecorator.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Decorators\\SandwichDecorator.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Decorators\\SandwichDecorator.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAgwFMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T00:28:07.06Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ExtraQuesoDecorator.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Decorators\\ExtraQuesoDecorator.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Decorators\\ExtraQuesoDecorator.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Decorators\\ExtraQuesoDecorator.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Decorators\\ExtraQuesoDecorator.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAkwCAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T00:28:04.683Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "DobleProteinaDecorator.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Decorators\\DobleProteinaDecorator.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Decorators\\DobleProteinaDecorator.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Decorators\\DobleProteinaDecorator.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Decorators\\DobleProteinaDecorator.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAkwCAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T00:28:02.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "AguacateDecorator.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Decorators\\AguacateDecorator.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Decorators\\AguacateDecorator.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Decorators\\AguacateDecorator.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Decorators\\AguacateDecorator.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-16T01:52:28.738Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "PreciosConstants.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Constants\\PreciosConstants.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.Core\\Constants\\PreciosConstants.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.Core\\Constants\\PreciosConstants.cs",
+              "RelativeToolTip": "RestauranteApp.Core\\Constants\\PreciosConstants.cs",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAowHkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T00:26:42.551Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SandwichBuilderView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Views\\SandwichBuilderView.xaml.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\Views\\SandwichBuilderView.xaml.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Views\\SandwichBuilderView.xaml.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\Views\\SandwichBuilderView.xaml.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwBoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T07:08:42.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ResumenView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Views\\ResumenView.xaml.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\Views\\ResumenView.xaml.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Views\\ResumenView.xaml.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\Views\\ResumenView.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T06:12:59.853Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "OrdenView.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Views\\OrdenView.xaml.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\Views\\OrdenView.xaml.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Views\\OrdenView.xaml.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\Views\\OrdenView.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T00:29:39.781Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\MainWindow.xaml.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T06:26:03.564Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\AssemblyInfo.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\AssemblyInfo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:46:07.081Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\App.xaml.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\App.xaml.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\App.xaml.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T06:25:48.432Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "BoolToVisibilityConverter.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Converters\\BoolToVisibilityConverter.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\Converters\\BoolToVisibilityConverter.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Converters\\BoolToVisibilityConverter.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\Converters\\BoolToVisibilityConverter.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwBYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T00:29:18.033Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "EnumToStringConverter.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Converters\\EnumToStringConverter.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\Converters\\EnumToStringConverter.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Converters\\EnumToStringConverter.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\Converters\\EnumToStringConverter.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAQwAcAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T00:29:18.995Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "NombreAdicionalConverter.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Converters\\NombreAdicionalConverter.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\Converters\\NombreAdicionalConverter.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Converters\\NombreAdicionalConverter.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\Converters\\NombreAdicionalConverter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T07:05:26.766Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "PriceFormatConverter.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Converters\\PriceFormatConverter.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\Converters\\PriceFormatConverter.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Converters\\PriceFormatConverter.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\Converters\\PriceFormatConverter.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:48:13.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "RelayCommand.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Helpers\\RelayCommand.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\Helpers\\RelayCommand.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Helpers\\RelayCommand.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\Helpers\\RelayCommand.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T03:45:49.45Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "DialogService.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Services\\DialogService.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\Services\\DialogService.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Services\\DialogService.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\Services\\DialogService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-19T00:29:25.235Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\ViewModels\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\ViewModels\\MainViewModel.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\ViewModels\\MainViewModel.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\ViewModels\\MainViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T06:26:32.891Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "OrdenViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\ViewModels\\OrdenViewModel.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\ViewModels\\OrdenViewModel.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\ViewModels\\OrdenViewModel.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\ViewModels\\OrdenViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAFEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T06:22:47.837Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "ResumenViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\ViewModels\\ResumenViewModel.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\ViewModels\\ResumenViewModel.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\ViewModels\\ResumenViewModel.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\ViewModels\\ResumenViewModel.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAAADwAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T06:12:11.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "SandwichBuilderViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\ViewModels\\SandwichBuilderViewModel.cs",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\ViewModels\\SandwichBuilderViewModel.cs",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\ViewModels\\SandwichBuilderViewModel.cs",
+              "RelativeToolTip": "RestauranteApp.WPF\\ViewModels\\SandwichBuilderViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADAAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-15T06:04:42.98Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\App.xaml",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\App.xaml",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\App.xaml",
+              "RelativeToolTip": "RestauranteApp.WPF\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-15T06:01:04.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\MainWindow.xaml",
+              "RelativeToolTip": "RestauranteApp.WPF\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-15T06:23:54.169Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "SandwichBuilderView.xaml",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Views\\SandwichBuilderView.xaml",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\Views\\SandwichBuilderView.xaml",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Views\\SandwichBuilderView.xaml",
+              "RelativeToolTip": "RestauranteApp.WPF\\Views\\SandwichBuilderView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-15T06:04:52.06Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "ResumenView.xaml",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Views\\ResumenView.xaml",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\Views\\ResumenView.xaml",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Views\\ResumenView.xaml",
+              "RelativeToolTip": "RestauranteApp.WPF\\Views\\ResumenView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-15T06:02:21.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "OrdenView.xaml",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Views\\OrdenView.xaml",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\Views\\OrdenView.xaml",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Views\\OrdenView.xaml",
+              "RelativeToolTip": "RestauranteApp.WPF\\Views\\OrdenView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-15T06:05:44.338Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "FolderProfile.pubxml",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+              "RelativeToolTip": "RestauranteApp.WPF\\Properties\\PublishProfiles\\FolderProfile.pubxml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2025-06-19T03:46:55.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "RestauranteApp.WPF.csproj",
+              "DocumentMoniker": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\RestauranteApp.WPF.csproj",
+              "RelativeDocumentMoniker": "RestauranteApp.WPF\\RestauranteApp.WPF.csproj",
+              "ToolTip": "C:\\Users\\Javier\\OneDrive\\Documentos\\GitHub\\Tareas-Patrones---Principios\\1_Restaurante_Decorador\\.vs\\Solution\\RestauranteApp.WPF\\RestauranteApp.WPF.csproj",
+              "RelativeToolTip": "RestauranteApp.WPF\\RestauranteApp.WPF.csproj",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAABUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-06-15T06:19:08.747Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "Microsoft.NET.Sdk.WindowsDesktop.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.314\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.NET.Sdk.WindowsDesktop.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.314\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.NET.Sdk.WindowsDesktop.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.314\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.NET.Sdk.WindowsDesktop.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.314\\Sdks\\Microsoft.NET.Sdk.WindowsDesktop\\targets\\Microsoft.NET.Sdk.WindowsDesktop.targets",
+              "ViewState": "AQIAAGEAAAAAAAAAAAApwG4AAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-06-15T06:22:26.396Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "Microsoft.NET.Sdk.DefaultItems.Shared.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.314\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.314\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.314\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.314\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.Shared.targets",
+              "ViewState": "AQIAALAAAAAAAAAAAAApwL0AAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-06-15T06:22:26.929Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

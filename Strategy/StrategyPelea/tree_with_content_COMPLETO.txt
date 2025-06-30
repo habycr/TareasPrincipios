@@ -1,0 +1,1064 @@
+Estructura del directorio: C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\3_Strategy\StrategyPelea
+
+StrategyPelea
+├── StrategyPelea
+│   ├── Aikido.cs
+│   ├── Boxeo.cs
+│   ├── Capoeira.cs
+│   ├── Form1.Designer.cs
+│   ├── Form1.cs
+│   ├── Form1.resx
+│   ├── Golpe.cs
+│   ├── IEstrategia.cs
+│   ├── Imagenes
+│   │   ├── Aikido.jpg
+│   │   ├── Boxeo.jpg
+│   │   ├── Capoeira.jpg
+│   │   ├── Judo.jpg
+│   │   ├── Karate.jpg
+│   │   ├── Kung Fu.jpg
+│   │   ├── Sambo.jpg
+│   │   ├── Sumo.jpg
+│   │   ├── Taekwondo.jpg
+│   │   ├── Wushu.jpg
+│   ├── Judo.cs
+│   ├── Karate.cs
+│   ├── KungFu.cs
+│   ├── Peleador.cs
+│   ├── Program.cs
+│   ├── Sambo.cs
+│   ├── StrategyPelea.csproj
+│   ├── StrategyPelea.csproj.user
+│   ├── Sumo.cs
+│   ├── Taekwondo.cs
+│   ├── Wushu.cs
+├── StrategyPelea.sln
+
+================================================================================
+CONTENIDO DE ARCHIVOS
+================================================================================
+
+Aikido.cs:
+----------
+﻿using System;
+using System.Collections.Generic;
+
+public class Aikido : IEstrategia
+{
+    private List<Golpe> golpes = new List<Golpe>
+    {
+        new Golpe("Kaiten Nage", 15),
+        new Golpe("Irimi Nage", 10),
+        new Golpe("Tenchi Nage", 20, cura: true)
+    };
+
+    public string Nombre => "Aikido";
+
+    public void EjecutarCombo(Peleador atacante, Peleador oponente, List<string> bitacora)
+    {
+        var rand = new Random();
+        int cantidad = rand.Next(3, 7);
+        for (int i = 0; i < cantidad; i++)
+        {
+            var golpe = golpes[rand.Next(golpes.Count)];
+            int danio = golpe.Poder + (golpe.DanaExtra ? 5 : 0);
+            oponente.RecibirDanio(danio);
+            if (golpe.Cura) atacante.Curar(10);
+            bitacora.Add($"{atacante.Nombre} usa {golpe.Nombre} de {Nombre} ({golpe.Poder})"
+                         + (golpe.Cura ? " [cura +10]" : "")
+                         + (golpe.DanaExtra ? " [daño extra +5]" : ""));
+        }
+    }
+    public List<Golpe> ObtenerGolpes() => golpes;
+
+}
+
+--------------------------------------------------
+
+Boxeo.cs:
+---------
+﻿using System;
+using System.Collections.Generic;
+
+public class Boxeo : IEstrategia
+{
+    private List<Golpe> golpes = new List<Golpe>
+    {
+        new Golpe("Jab", 8),
+        new Golpe("Gancho", 15),
+        new Golpe("Uppercut", 40, danaExtra: true)
+    };
+
+    public string Nombre => "Boxeo";
+
+    public void EjecutarCombo(Peleador atacante, Peleador oponente, List<string> bitacora)
+    {
+        var rand = new Random();
+        int cantidad = rand.Next(3, 7);
+        for (int i = 0; i < cantidad; i++)
+        {
+            var golpe = golpes[rand.Next(golpes.Count)];
+            int danio = golpe.Poder + (golpe.DanaExtra ? 5 : 0);
+            oponente.RecibirDanio(danio);
+            if (golpe.Cura) atacante.Curar(10);
+
+            bitacora.Add($"{atacante.Nombre} usa {golpe.Nombre} de {Nombre} ({golpe.Poder})"
+                        + (golpe.Cura ? " [cura +10]" : "")
+                        + (golpe.DanaExtra ? " [daño extra +5]" : ""));
+        }
+    }
+    public List<Golpe> ObtenerGolpes() => golpes;
+}
+
+
+--------------------------------------------------
+
+Capoeira.cs:
+------------
+﻿using System;
+using System.Collections.Generic;
+
+public class Capoeira : IEstrategia
+{
+    private List<Golpe> golpes = new List<Golpe>
+    {
+        new Golpe("Armada", 8),
+        new Golpe("Martillo", 28, danaExtra: true),
+        new Golpe("Ponteira", 13)
+    };
+
+    public string Nombre => "Capoeira";
+
+    public void EjecutarCombo(Peleador atacante, Peleador oponente, List<string> bitacora)
+    {
+        var rand = new Random();
+        int cantidad = rand.Next(3, 7);
+        for (int i = 0; i < cantidad; i++)
+        {
+            var golpe = golpes[rand.Next(golpes.Count)];
+            int danio = golpe.Poder + (golpe.DanaExtra ? 5 : 0);
+            oponente.RecibirDanio(danio);
+            if (golpe.Cura) atacante.Curar(10);
+
+            bitacora.Add($"{atacante.Nombre} usa {golpe.Nombre} de {Nombre} ({golpe.Poder})"
+                        + (golpe.Cura ? " [cura +10]" : "")
+                        + (golpe.DanaExtra ? " [daño extra +5]" : ""));
+        }
+    }
+    public List<Golpe> ObtenerGolpes() => golpes;
+}
+
+
+--------------------------------------------------
+
+Form1.Designer.cs:
+------------------
+﻿namespace StrategyPelea
+{
+    partial class Form1
+    {
+        private System.ComponentModel.IContainer components = null;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+                components.Dispose();
+            base.Dispose(disposing);
+        }
+
+        #region Código generado por el Diseñador de Windows Forms
+
+        private void InitializeComponent()
+        {
+            pnlArtesJ1 = new FlowLayoutPanel();
+            pnlArtesJ2 = new FlowLayoutPanel();
+            cmbSeleccionJ1 = new ComboBox();
+            btnReasignarJ1 = new Button();
+            btnReasignarJ2 = new Button();
+            btnGenerarComboJ1 = new Button();
+            btnGenerarComboJ2 = new Button();
+            btnAtacarJ1 = new Button();
+            btnAtacarJ2 = new Button();
+            txtBitacoraJ1 = new TextBox();
+            txtBitacoraJ2 = new TextBox();
+            lblVidaJ1 = new Label();
+            lblVidaJ2 = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            picArteJ1 = new PictureBox();
+            picArteJ2_1 = new PictureBox();
+            picArteJ2_2 = new PictureBox();
+            picArteJ2_3 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)picArteJ1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picArteJ2_1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picArteJ2_2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picArteJ2_3).BeginInit();
+            SuspendLayout();
+            // 
+            // pnlArtesJ1
+            // 
+            pnlArtesJ1.AutoScroll = true;
+            pnlArtesJ1.Location = new Point(20, 57);
+            pnlArtesJ1.Name = "pnlArtesJ1";
+            pnlArtesJ1.Size = new Size(487, 124);
+            pnlArtesJ1.TabIndex = 0;
+            pnlArtesJ1.Paint += pnlArtesJ1_Paint;
+            // 
+            // pnlArtesJ2
+            // 
+            pnlArtesJ2.AutoScroll = true;
+            pnlArtesJ2.Location = new Point(513, 57);
+            pnlArtesJ2.Name = "pnlArtesJ2";
+            pnlArtesJ2.Size = new Size(488, 124);
+            pnlArtesJ2.TabIndex = 1;
+            pnlArtesJ2.Paint += pnlArtesJ2_Paint;
+            // 
+            // cmbSeleccionJ1
+            // 
+            cmbSeleccionJ1.Location = new Point(20, 187);
+            cmbSeleccionJ1.Name = "cmbSeleccionJ1";
+            cmbSeleccionJ1.Size = new Size(150, 23);
+            cmbSeleccionJ1.TabIndex = 2;
+            // 
+            // btnReasignarJ1
+            // 
+            btnReasignarJ1.Location = new Point(46, 352);
+            btnReasignarJ1.Name = "btnReasignarJ1";
+            btnReasignarJ1.Size = new Size(100, 23);
+            btnReasignarJ1.TabIndex = 3;
+            btnReasignarJ1.Text = "Reasignar J1";
+            btnReasignarJ1.Click += btnReasignarJ1_Click;
+            // 
+            // btnReasignarJ2
+            // 
+            btnReasignarJ2.Location = new Point(627, 371);
+            btnReasignarJ2.Name = "btnReasignarJ2";
+            btnReasignarJ2.Size = new Size(100, 23);
+            btnReasignarJ2.TabIndex = 4;
+            btnReasignarJ2.Text = "Reasignar J2";
+            btnReasignarJ2.Click += btnReasignarJ2_Click;
+            // 
+            // btnGenerarComboJ1
+            // 
+            btnGenerarComboJ1.Location = new Point(37, 236);
+            btnGenerarComboJ1.Name = "btnGenerarComboJ1";
+            btnGenerarComboJ1.Size = new Size(120, 23);
+            btnGenerarComboJ1.TabIndex = 5;
+            btnGenerarComboJ1.Text = "Generar Combo J1";
+            btnGenerarComboJ1.Click += btnGenerarComboJ1_Click;
+            // 
+            // btnGenerarComboJ2
+            // 
+            btnGenerarComboJ2.Location = new Point(752, 371);
+            btnGenerarComboJ2.Name = "btnGenerarComboJ2";
+            btnGenerarComboJ2.Size = new Size(120, 23);
+            btnGenerarComboJ2.TabIndex = 7;
+            btnGenerarComboJ2.Text = "Generar Combo J2";
+            btnGenerarComboJ2.Click += btnGenerarComboJ2_Click;
+            // 
+            // btnAtacarJ1
+            // 
+            btnAtacarJ1.Location = new Point(46, 289);
+            btnAtacarJ1.Name = "btnAtacarJ1";
+            btnAtacarJ1.Size = new Size(100, 23);
+            btnAtacarJ1.TabIndex = 6;
+            btnAtacarJ1.Text = "Atacar J1";
+            btnAtacarJ1.Click += btnAtacarJ1_Click;
+            // 
+            // btnAtacarJ2
+            // 
+            btnAtacarJ2.Location = new Point(878, 371);
+            btnAtacarJ2.Name = "btnAtacarJ2";
+            btnAtacarJ2.Size = new Size(100, 23);
+            btnAtacarJ2.TabIndex = 8;
+            btnAtacarJ2.Text = "Atacar J2";
+            btnAtacarJ2.Click += btnAtacarJ2_Click;
+            // 
+            // txtBitacoraJ1
+            // 
+            txtBitacoraJ1.Location = new Point(20, 408);
+            txtBitacoraJ1.Multiline = true;
+            txtBitacoraJ1.Name = "txtBitacoraJ1";
+            txtBitacoraJ1.ScrollBars = ScrollBars.Vertical;
+            txtBitacoraJ1.Size = new Size(374, 150);
+            txtBitacoraJ1.TabIndex = 9;
+            txtBitacoraJ1.TextChanged += txtBitacoraJ1_TextChanged;
+            // 
+            // txtBitacoraJ2
+            // 
+            txtBitacoraJ2.Location = new Point(624, 408);
+            txtBitacoraJ2.Multiline = true;
+            txtBitacoraJ2.Name = "txtBitacoraJ2";
+            txtBitacoraJ2.ScrollBars = ScrollBars.Vertical;
+            txtBitacoraJ2.Size = new Size(383, 150);
+            txtBitacoraJ2.TabIndex = 10;
+            // 
+            // lblVidaJ1
+            // 
+            lblVidaJ1.AutoSize = true;
+            lblVidaJ1.Location = new Point(170, 570);
+            lblVidaJ1.Name = "lblVidaJ1";
+            lblVidaJ1.Size = new Size(0, 15);
+            lblVidaJ1.TabIndex = 11;
+            // 
+            // lblVidaJ2
+            // 
+            lblVidaJ2.AutoSize = true;
+            lblVidaJ2.Location = new Point(780, 570);
+            lblVidaJ2.Name = "lblVidaJ2";
+            lblVidaJ2.Size = new Size(0, 15);
+            lblVidaJ2.TabIndex = 12;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(241, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(58, 15);
+            label1.TabIndex = 13;
+            label1.Text = "Jugador 1";
+            label1.Click += label1_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(728, 22);
+            label2.Name = "label2";
+            label2.Size = new Size(58, 15);
+            label2.TabIndex = 13;
+            label2.Text = "Jugador 2";
+            label2.Click += label1_Click;
+            // 
+            // picArteJ1
+            // 
+            picArteJ1.Location = new Point(213, 200);
+            picArteJ1.Name = "picArteJ1";
+            picArteJ1.Size = new Size(168, 166);
+            picArteJ1.SizeMode = PictureBoxSizeMode.Zoom;
+            picArteJ1.TabIndex = 17;
+            picArteJ1.TabStop = false;
+            // 
+            // picArteJ2_1
+            // 
+            picArteJ2_1.Location = new Point(513, 199);
+            picArteJ2_1.Name = "picArteJ2_1";
+            picArteJ2_1.Size = new Size(164, 166);
+            picArteJ2_1.SizeMode = PictureBoxSizeMode.Zoom;
+            picArteJ2_1.TabIndex = 14;
+            picArteJ2_1.TabStop = false;
+            picArteJ2_1.Click += picArteJ2_1_Click;
+            // 
+            // picArteJ2_2
+            // 
+            picArteJ2_2.Location = new Point(679, 200);
+            picArteJ2_2.Name = "picArteJ2_2";
+            picArteJ2_2.Size = new Size(164, 166);
+            picArteJ2_2.SizeMode = PictureBoxSizeMode.Zoom;
+            picArteJ2_2.TabIndex = 15;
+            picArteJ2_2.TabStop = false;
+            // 
+            // picArteJ2_3
+            // 
+            picArteJ2_3.Location = new Point(843, 199);
+            picArteJ2_3.Name = "picArteJ2_3";
+            picArteJ2_3.Size = new Size(164, 166);
+            picArteJ2_3.SizeMode = PictureBoxSizeMode.Zoom;
+            picArteJ2_3.TabIndex = 16;
+            picArteJ2_3.TabStop = false;
+            // 
+            // Form1
+            // 
+            ClientSize = new Size(1024, 602);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(pnlArtesJ1);
+            Controls.Add(pnlArtesJ2);
+            Controls.Add(cmbSeleccionJ1);
+            Controls.Add(btnReasignarJ1);
+            Controls.Add(btnReasignarJ2);
+            Controls.Add(btnGenerarComboJ1);
+            Controls.Add(btnAtacarJ1);
+            Controls.Add(btnGenerarComboJ2);
+            Controls.Add(btnAtacarJ2);
+            Controls.Add(txtBitacoraJ1);
+            Controls.Add(txtBitacoraJ2);
+            Controls.Add(lblVidaJ1);
+            Controls.Add(lblVidaJ2);
+            Controls.Add(picArteJ1);
+            Controls.Add(picArteJ2_1);
+            Controls.Add(picArteJ2_2);
+            Controls.Add(picArteJ2_3);
+            Name = "Form1";
+            Text = "Pelea por Turnos";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)picArteJ1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picArteJ2_1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picArteJ2_2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picArteJ2_3).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private FlowLayoutPanel pnlArtesJ1;
+        private FlowLayoutPanel pnlArtesJ2;
+        private ComboBox cmbSeleccionJ1;
+        private Button btnReasignarJ1;
+        private Button btnReasignarJ2;
+        private Button btnGenerarComboJ1;
+        private Button btnGenerarComboJ2;
+        private Button btnAtacarJ1;
+        private Button btnAtacarJ2;
+        private TextBox txtBitacoraJ1;
+        private TextBox txtBitacoraJ2;
+        private Label lblVidaJ1;
+        private Label lblVidaJ2;
+        private Label label1;
+        private Label label2;
+
+
+        private PictureBox picArteJ1;
+        private PictureBox picArteJ2_1;
+        private PictureBox picArteJ2_2;
+        private PictureBox picArteJ2_3;
+    }
+}
+
+
+--------------------------------------------------
+
+Form1.cs:
+---------
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace StrategyPelea
+{
+    public partial class Form1 : Form
+    {
+        private Peleador j1, j2;
+        private Random rand = new Random();
+        private List<Golpe> comboJ1 = new();
+        private List<Golpe> comboJ2 = new();
+
+        public Form1() => InitializeComponent();
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            j1 = new Peleador("Jugador 1", GenerarArtesAleatorias());
+            j2 = new Peleador("Jugador 2", GenerarArtesAleatorias());
+
+            cmbSeleccionJ1.DataSource = j1.Estrategias.Select(e => e.Nombre).ToList();
+            ActualizarPanelesArtes(pnlArtesJ1, j1);
+            ActualizarPanelesArtes(pnlArtesJ2, j2);
+
+            ActualizarVidas();
+
+
+            ActualizarImagenJ1();
+            ActualizarImagenesJ2();
+
+            cmbSeleccionJ1.SelectedIndexChanged += (s, e) => ActualizarImagenJ1();
+
+
+
+
+        }
+
+        private List<IEstrategia> GenerarArtesAleatorias()
+        {
+            var todas = new List<IEstrategia>
+            {
+                new Karate(), new Boxeo(), new Capoeira(), new KungFu(), new Judo(),
+                new Aikido(), new Wushu(), new Sambo(), new Taekwondo(), new Sumo()
+            };
+            return todas.OrderBy(_ => rand.Next()).Take(3).ToList();
+        }
+
+        private void ActualizarPanelesArtes(FlowLayoutPanel panel, Peleador jugador)
+        {
+            panel.Controls.Clear();
+
+            foreach (var estrategia in jugador.Estrategias)
+            {
+                var groupBox = new GroupBox
+                {
+                    Text = estrategia.Nombre,
+                    Width = 150,
+                    Height = 100
+                };
+
+                var listBox = new ListBox
+                {
+                    Dock = DockStyle.Fill,
+                    Enabled = false
+                };
+
+                listBox.Items.AddRange(estrategia.ObtenerGolpes()
+                    .Select(g => $"{g.Nombre} ({g.Poder})").ToArray());
+
+                groupBox.Controls.Add(listBox);
+                panel.Controls.Add(groupBox);
+            }
+        }
+
+        private void btnReasignarJ1_Click(object sender, EventArgs e)
+        {
+            j1.ReasignarEstrategias(GenerarArtesAleatorias());
+            cmbSeleccionJ1.DataSource = j1.Estrategias.Select(e => e.Nombre).ToList();
+            ActualizarPanelesArtes(pnlArtesJ1, j1);
+
+            ActualizarImagenJ1();
+
+        }
+
+        private void btnReasignarJ2_Click(object sender, EventArgs e)
+        {
+            j2.ReasignarEstrategias(GenerarArtesAleatorias());
+            ActualizarPanelesArtes(pnlArtesJ2, j2);
+
+            ActualizarImagenesJ2();
+        }
+
+        private void btnGenerarComboJ1_Click(object sender, EventArgs e)
+        {
+            int indice = cmbSeleccionJ1.SelectedIndex;
+            var estrategia = j1.Estrategias[indice];
+            var golpes = estrategia.ObtenerGolpes();
+            int cantidad = rand.Next(3, 7);
+
+            comboJ1 = Enumerable.Range(0, cantidad)
+                                .Select(_ => golpes[rand.Next(golpes.Count)])
+                                .ToList();
+        }
+
+        private void btnGenerarComboJ2_Click(object sender, EventArgs e)
+        {
+            var golpesDisponibles = j2.Estrategias.SelectMany(e => e.ObtenerGolpes()).ToList();
+            int cantidad = rand.Next(3, 7);
+
+            comboJ2 = Enumerable.Range(0, cantidad)
+                                .Select(_ => golpesDisponibles[rand.Next(golpesDisponibles.Count)])
+                                .ToList();
+        }
+
+        private void btnAtacarJ1_Click(object sender, EventArgs e)
+        {
+            if (comboJ1.Count == 0)
+            {
+                MessageBox.Show("Genera un combo para J1 antes de atacar.");
+                return;
+            }
+
+            foreach (var golpe in comboJ1)
+            {
+                int danio = golpe.Poder + (golpe.DanaExtra ? 5 : 0);
+                j2.RecibirDanio(danio);
+                if (golpe.Cura) j1.Curar(10);
+
+                j1.Bitacora.Add($"{j1.Nombre} usó {golpe.Nombre} causando {danio}" +
+                                (golpe.Cura ? " [cura +10]" : "") +
+                                (golpe.DanaExtra ? " [extra +5]" : ""));
+            }
+
+            MostrarBitacora(txtBitacoraJ1, j1.Bitacora);
+            ActualizarVidas();
+            RevisarFinDelJuego();
+            comboJ1.Clear();
+        }
+
+        private void btnAtacarJ2_Click(object sender, EventArgs e)
+        {
+            if (comboJ2.Count == 0)
+            {
+                MessageBox.Show("Genera un combo para J2 antes de atacar.");
+                return;
+            }
+
+            foreach (var golpe in comboJ2)
+            {
+                int danio = golpe.Poder + (golpe.DanaExtra ? 5 : 0);
+                j1.RecibirDanio(danio);
+                if (golpe.Cura) j2.Curar(10);
+
+                j2.Bitacora.Add($"{j2.Nombre} usó {golpe.Nombre} causando {danio}" +
+                                (golpe.Cura ? " [cura +10]" : "") +
+                                (golpe.DanaExtra ? " [extra +5]" : ""));
+            }
+
+            MostrarBitacora(txtBitacoraJ2, j2.Bitacora);
+            ActualizarVidas();
+            RevisarFinDelJuego();
+            comboJ2.Clear();
+        }
+
+        private void MostrarBitacora(TextBox destino, List<string> bitacora)
+        {
+            destino.Clear();
+            foreach (var linea in bitacora)
+                destino.AppendText(linea + Environment.NewLine);
+        }
+
+        private void ActualizarVidas()
+        {
+            lblVidaJ1.Text = $"Vida J1: {j1.Vida}";
+            lblVidaJ2.Text = $"Vida J2: {j2.Vida}";
+        }
+
+        private void RevisarFinDelJuego()
+        {
+            if (j1.Vida <= 0)
+                MessageBox.Show("¡Jugador 2 gana!");
+            else if (j2.Vida <= 0)
+                MessageBox.Show("¡Jugador 1 gana!");
+        }
+
+        private void pnlArtesJ2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtBitacoraJ1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnlArtesJ1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ActualizarImagenJ1()
+        {
+            if (cmbSeleccionJ1.SelectedItem is string nombreArte)
+            {
+                string ruta = Path.Combine(Application.StartupPath, "Imagenes", $"{nombreArte}.jpg");
+
+                if (File.Exists(ruta))
+                    picArteJ1.Image = Image.FromFile(ruta);
+                else
+                    picArteJ1.Image = null;
+            }
+        }
+
+
+        private void ActualizarImagenesJ2()
+        {
+            var imagenes = new[] { picArteJ2_1, picArteJ2_2, picArteJ2_3 };
+
+            for (int i = 0; i < j2.Estrategias.Count && i < 3; i++)
+            {
+                string nombre = j2.Estrategias[i].Nombre;
+                string ruta = Path.Combine(Application.StartupPath, "Imagenes", $"{nombre}.jpg");
+
+                if (File.Exists(ruta))
+                    imagenes[i].Image = Image.FromFile(ruta);
+                else
+                    imagenes[i].Image = null;
+            }
+        }
+
+
+        private void CargarImagen(PictureBox pic, string nombreArte)
+        {
+            try
+            {
+                string ruta = $"Imagenes/{nombreArte}.png";
+                if (System.IO.File.Exists(ruta))
+                    pic.Image = Image.FromFile(ruta);
+                else
+                    pic.Image = null;
+            }
+            catch
+            {
+                pic.Image = null;
+            }
+        }
+
+        private void picArteJ2_1_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
+
+--------------------------------------------------
+
+Golpe.cs:
+---------
+﻿public class Golpe
+{
+    public string Nombre { get; }
+    public int Poder { get; }
+    public bool Cura { get; }
+    public bool DanaExtra { get; }
+
+    public Golpe(string nombre, int poder, bool cura = false, bool danaExtra = false)
+    {
+        Nombre = nombre;
+        Poder = poder;
+        Cura = cura;
+        DanaExtra = danaExtra;
+    }
+}
+
+
+--------------------------------------------------
+
+IEstrategia.cs:
+---------------
+﻿public interface IEstrategia
+{
+    string Nombre { get; }
+
+    void EjecutarCombo(Peleador atacante, Peleador oponente, List<string> bitacora);
+
+    List<Golpe> ObtenerGolpes(); // <- NECESARIO para acceder a los golpes
+}
+
+
+--------------------------------------------------
+
+Judo.cs:
+--------
+﻿using System;
+using System.Collections.Generic;
+
+public class Judo : IEstrategia
+{
+    private List<Golpe> golpes = new List<Golpe>
+    {
+        new Golpe("Tai-Otoshi", 8),
+        new Golpe("Koshi-Guruma", 20),
+        new Golpe("Osoto-Gari", 13, cura: true)
+    };
+
+    public string Nombre => "Judo";
+
+    public void EjecutarCombo(Peleador atacante, Peleador oponente, List<string> bitacora)
+    {
+        var rand = new Random();
+        int cantidad = rand.Next(3, 7);
+        for (int i = 0; i < cantidad; i++)
+        {
+            var golpe = golpes[rand.Next(golpes.Count)];
+            int danio = golpe.Poder + (golpe.DanaExtra ? 5 : 0);
+            oponente.RecibirDanio(danio);
+            if (golpe.Cura) atacante.Curar(10);
+
+            bitacora.Add($"{atacante.Nombre} usa {golpe.Nombre} de {Nombre} ({golpe.Poder})"
+                        + (golpe.Cura ? " [cura +10]" : "")
+                        + (golpe.DanaExtra ? " [daño extra +5]" : ""));
+        }
+    }
+    public List<Golpe> ObtenerGolpes() => golpes;
+}
+
+
+--------------------------------------------------
+
+Karate.cs:
+----------
+﻿using System;
+using System.Collections.Generic;
+
+public class Karate : IEstrategia
+{
+    private List<Golpe> golpes = new List<Golpe>
+    {
+        new Golpe("Mae Geri", 10),
+        new Golpe("Yoko Geri", 5, cura: true),
+        new Golpe("Mawashi Geri", 30)
+    };
+
+    public string Nombre => "Karate";
+
+    public void EjecutarCombo(Peleador atacante, Peleador oponente, List<string> bitacora)
+    {
+        var rand = new Random();
+        int cantidad = rand.Next(3, 7);
+        for (int i = 0; i < cantidad; i++)
+        {
+            var golpe = golpes[rand.Next(golpes.Count)];
+            int danio = golpe.Poder + (golpe.DanaExtra ? 5 : 0);
+            oponente.RecibirDanio(danio);
+            if (golpe.Cura) atacante.Curar(10);
+
+            bitacora.Add($"{atacante.Nombre} usa {golpe.Nombre} de {Nombre} ({golpe.Poder})"
+                        + (golpe.Cura ? " [cura +10]" : "")
+                        + (golpe.DanaExtra ? " [daño extra +5]" : ""));
+        }
+    }
+    public List<Golpe> ObtenerGolpes() => golpes;
+}
+
+
+--------------------------------------------------
+
+KungFu.cs:
+----------
+﻿using System;
+using System.Collections.Generic;
+
+public class KungFu : IEstrategia
+{
+    private List<Golpe> golpes = new List<Golpe>
+    {
+        new Golpe("Ch'ien", 10),
+        new Golpe("Kuan Tsu", 11),
+        new Golpe("Pei Tsu", 22, cura: true, danaExtra: true)
+    };
+
+    public string Nombre => "Kung Fu";
+
+    public void EjecutarCombo(Peleador atacante, Peleador oponente, List<string> bitacora)
+    {
+        var rand = new Random();
+        int cantidad = rand.Next(3, 7);
+        for (int i = 0; i < cantidad; i++)
+        {
+            var golpe = golpes[rand.Next(golpes.Count)];
+            int danio = golpe.Poder + (golpe.DanaExtra ? 5 : 0);
+            oponente.RecibirDanio(danio);
+            if (golpe.Cura) atacante.Curar(10);
+
+            bitacora.Add($"{atacante.Nombre} usa {golpe.Nombre} de {Nombre} ({golpe.Poder})"
+                        + (golpe.Cura ? " [cura +10]" : "")
+                        + (golpe.DanaExtra ? " [daño extra +5]" : ""));
+        }
+    }
+    public List<Golpe> ObtenerGolpes() => golpes;
+}
+
+
+--------------------------------------------------
+
+Peleador.cs:
+------------
+﻿using System.Collections.Generic;
+
+public class Peleador
+{
+    public string Nombre { get; }
+    public int Vida { get; private set; } = 200;
+    public List<IEstrategia> Estrategias { get; }
+    public List<string> Bitacora { get; }
+
+    public Peleador(string nombre, List<IEstrategia> estrategias)
+    {
+        Nombre = nombre;
+        Estrategias = estrategias;
+        Bitacora = new List<string>();
+    }
+
+    public void ReasignarEstrategias(List<IEstrategia> nuevas)
+    {
+        Estrategias.Clear();
+        Estrategias.AddRange(nuevas);
+        Bitacora.Add($"{Nombre} ha reasignado sus artes marciales.");
+    }
+
+    public void Atacar(Peleador oponente, bool elegirAleatoria = true, int indiceManual = 0)
+    {
+        IEstrategia estrategia = elegirAleatoria
+            ? Estrategias[new Random().Next(Estrategias.Count)]
+            : Estrategias[indiceManual];
+
+        estrategia.EjecutarCombo(this, oponente, Bitacora);
+    }
+
+    public void RecibirDanio(int cantidad)
+    {
+        Vida -= cantidad;
+    }
+
+    public void Curar(int cantidad)
+    {
+        Vida += cantidad;
+    }
+}
+
+
+--------------------------------------------------
+
+Program.cs:
+-----------
+namespace StrategyPelea
+{
+    internal static class Program
+    {
+        /// <summary>
+        ///  The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            ApplicationConfiguration.Initialize();
+            Application.Run(new Form1());
+        }
+    }
+}
+
+--------------------------------------------------
+
+Sambo.cs:
+---------
+﻿using System;
+using System.Collections.Generic;
+
+public class Sambo : IEstrategia
+{
+    private List<Golpe> golpes = new List<Golpe>
+    {
+        new Golpe("Derribo ruso", 18),
+        new Golpe("Luxación de brazo", 25, danaExtra: true),
+        new Golpe("Técnica de sujeción", 10, cura: true)
+    };
+
+    public string Nombre => "Sambo";
+
+    public void EjecutarCombo(Peleador atacante, Peleador oponente, List<string> bitacora)
+    {
+        var rand = new Random();
+        int cantidad = rand.Next(3, 7); // Entre 3 y 6 golpes
+        for (int i = 0; i < cantidad; i++)
+        {
+            var golpe = golpes[rand.Next(golpes.Count)];
+            int danio = golpe.Poder + (golpe.DanaExtra ? 5 : 0);
+            oponente.RecibirDanio(danio);
+            if (golpe.Cura)
+                atacante.Curar(10);
+
+            bitacora.Add($"{atacante.Nombre} usa {golpe.Nombre} de {Nombre} ({golpe.Poder})"
+                         + (golpe.Cura ? " [cura +10]" : "")
+                         + (golpe.DanaExtra ? " [daño extra +5]" : ""));
+        }
+    }
+    public List<Golpe> ObtenerGolpes() => golpes;
+}
+
+
+--------------------------------------------------
+
+Sumo.cs:
+--------
+﻿using System;
+using System.Collections.Generic;
+
+public class Sumo : IEstrategia
+{
+    private List<Golpe> golpes = new List<Golpe>
+    {
+        new Golpe("Shiko", 12),
+        new Golpe("Harite", 20),
+        new Golpe("Yori", 25, danaExtra: true)
+    };
+
+    public string Nombre => "Sumo";
+
+    public void EjecutarCombo(Peleador atacante, Peleador oponente, List<string> bitacora)
+    {
+        var rand = new Random();
+        int cantidad = rand.Next(3, 7);
+        for (int i = 0; i < cantidad; i++)
+        {
+            var golpe = golpes[rand.Next(golpes.Count)];
+            int danio = golpe.Poder + (golpe.DanaExtra ? 5 : 0);
+            oponente.RecibirDanio(danio);
+            if (golpe.Cura) atacante.Curar(10);
+            bitacora.Add($"{atacante.Nombre} usa {golpe.Nombre} de {Nombre} ({golpe.Poder})"
+                         + (golpe.Cura ? " [cura +10]" : "")
+                         + (golpe.DanaExtra ? " [daño extra +5]" : ""));
+        }
+    }
+    public List<Golpe> ObtenerGolpes() => golpes;
+}
+
+
+--------------------------------------------------
+
+Taekwondo.cs:
+-------------
+﻿using System;
+using System.Collections.Generic;
+
+public class Taekwondo : IEstrategia
+{
+    private List<Golpe> golpes = new List<Golpe>
+    {
+        new Golpe("Dollyo Chagi", 12),
+        new Golpe("Ap Chagi", 15),
+        new Golpe("Naeryo Chagi", 20, danaExtra: true)
+    };
+
+    public string Nombre => "Taekwondo";
+
+    public void EjecutarCombo(Peleador atacante, Peleador oponente, List<string> bitacora)
+    {
+        var rand = new Random();
+        int cantidad = rand.Next(3, 7);
+        for (int i = 0; i < cantidad; i++)
+        {
+            var golpe = golpes[rand.Next(golpes.Count)];
+            int danio = golpe.Poder + (golpe.DanaExtra ? 5 : 0);
+            oponente.RecibirDanio(danio);
+            if (golpe.Cura) atacante.Curar(10);
+            bitacora.Add($"{atacante.Nombre} usa {golpe.Nombre} de {Nombre} ({golpe.Poder})"
+                         + (golpe.Cura ? " [cura +10]" : "")
+                         + (golpe.DanaExtra ? " [daño extra +5]" : ""));
+        }
+    }
+    public List<Golpe> ObtenerGolpes() => golpes;
+}
+
+
+--------------------------------------------------
+
+Wushu.cs:
+---------
+﻿using System;
+using System.Collections.Generic;
+
+public class Wushu : IEstrategia
+{
+    private List<Golpe> golpes = new List<Golpe>
+    {
+        new Golpe("Changquan", 10),
+        new Golpe("Tornado Kick", 25, danaExtra: true),
+        new Golpe("Butterfly Kick", 18)
+    };
+
+    public string Nombre => "Wushu";
+
+    public void EjecutarCombo(Peleador atacante, Peleador oponente, List<string> bitacora)
+    {
+        var rand = new Random();
+        int cantidad = rand.Next(3, 7);
+        for (int i = 0; i < cantidad; i++)
+        {
+            var golpe = golpes[rand.Next(golpes.Count)];
+            int danio = golpe.Poder + (golpe.DanaExtra ? 5 : 0);
+            oponente.RecibirDanio(danio);
+            if (golpe.Cura) atacante.Curar(10);
+            bitacora.Add($"{atacante.Nombre} usa {golpe.Nombre} de {Nombre} ({golpe.Poder})"
+                         + (golpe.Cura ? " [cura +10]" : "")
+                         + (golpe.DanaExtra ? " [daño extra +5]" : ""));
+        }
+    }
+    public List<Golpe> ObtenerGolpes() => golpes;
+}
+
+--------------------------------------------------
+

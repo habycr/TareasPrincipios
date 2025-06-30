@@ -1,0 +1,225 @@
+<html>
+<head>
+<title>Main.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+.s5 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Main.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Map</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Scanner</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">Main </span><span class="s2">{</span>
+    <span class="s3">// Códigos ANSI para colores</span>
+    <span class="s0">private static final </span><span class="s1">String RESET </span><span class="s2">= </span><span class="s4">&quot;</span><span class="s0">\u001B</span><span class="s4">[0m&quot;</span><span class="s2">;</span>
+    <span class="s0">private static final </span><span class="s1">String WHITE </span><span class="s2">= </span><span class="s4">&quot;</span><span class="s0">\u001B</span><span class="s4">[37m&quot;</span><span class="s2">;</span>
+    <span class="s0">private static final </span><span class="s1">String BLUE </span><span class="s2">= </span><span class="s4">&quot;</span><span class="s0">\u001B</span><span class="s4">[34m&quot;</span><span class="s2">;</span>
+
+    <span class="s0">public static void </span><span class="s1">main</span><span class="s2">(</span><span class="s1">String</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">) {</span>
+        <span class="s1">Scanner scanner </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Scanner</span><span class="s2">(</span><span class="s1">System</span><span class="s2">.</span><span class="s1">in</span><span class="s2">);</span>
+        <span class="s1">ConfigurationManager configManager </span><span class="s2">= </span><span class="s1">ConfigurationManager</span><span class="s2">.</span><span class="s1">getInstance</span><span class="s2">();</span>
+        <span class="s1">WelcomeScreen welcomeScreen </span><span class="s2">= </span><span class="s0">new </span><span class="s1">WelcomeScreen</span><span class="s2">();</span>
+        <span class="s1">ConnectionSimulator connectionSimulator </span><span class="s2">= </span><span class="s0">new </span><span class="s1">ConnectionSimulator</span><span class="s2">();</span>
+
+        <span class="s0">while </span><span class="s2">(</span><span class="s0">true</span><span class="s2">) {</span>
+            <span class="s3">// Obtener tema y color actual</span>
+            <span class="s1">String theme </span><span class="s2">= (</span><span class="s1">String</span><span class="s2">) </span><span class="s1">configManager</span><span class="s2">.</span><span class="s1">getConfigValue</span><span class="s2">(</span><span class="s4">&quot;theme&quot;</span><span class="s2">);</span>
+            <span class="s1">String color </span><span class="s2">= </span><span class="s1">theme</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s4">&quot;dark&quot;</span><span class="s2">) ? </span><span class="s1">BLUE </span><span class="s2">: </span><span class="s1">WHITE</span><span class="s2">;</span>
+
+            <span class="s3">// Aplicar color al menú</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">color</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;=== MENÚ PRINCIPAL ===&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;1. Ver configuración actual&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;2. Cambiar configuración&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;3. Ir al panel de bienvenida&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;4. Ejecutar simulador de conexiones&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;5. Salir del sistema&quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Seleccione una opción: &quot;</span><span class="s2">);</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">RESET</span><span class="s2">); </span><span class="s3">// Resetear color después del menú</span>
+
+            <span class="s0">int </span><span class="s1">option </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+            <span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">(); </span><span class="s3">// Consumir el salto de línea</span>
+
+            <span class="s3">// Resetear color si hay errores</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">color</span><span class="s2">);</span>
+
+            <span class="s0">switch </span><span class="s2">(</span><span class="s1">option</span><span class="s2">) {</span>
+                <span class="s0">case </span><span class="s5">1</span><span class="s2">:</span>
+                    <span class="s1">showCurrentConfig</span><span class="s2">(</span><span class="s1">configManager</span><span class="s2">);</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+                <span class="s0">case </span><span class="s5">2</span><span class="s2">:</span>
+                    <span class="s1">changeConfiguration</span><span class="s2">(</span><span class="s1">configManager</span><span class="s2">, </span><span class="s1">scanner</span><span class="s2">);</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+                <span class="s0">case </span><span class="s5">3</span><span class="s2">:</span>
+                    <span class="s1">welcomeScreen</span><span class="s2">.</span><span class="s1">display</span><span class="s2">();</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+                <span class="s0">case </span><span class="s5">4</span><span class="s2">:</span>
+                    <span class="s1">connectionSimulator</span><span class="s2">.</span><span class="s1">runSimulation</span><span class="s2">();</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+                <span class="s0">case </span><span class="s5">5</span><span class="s2">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Saliendo del sistema...&quot;</span><span class="s2">);</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">exit</span><span class="s2">(</span><span class="s5">0</span><span class="s2">);</span>
+                    <span class="s0">break</span><span class="s2">;</span>
+                <span class="s0">default</span><span class="s2">:</span>
+                    <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Opción no válida. Intente de nuevo.&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">RESET</span><span class="s2">); </span><span class="s3">// Resetear color al final de cada opción</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private static void </span><span class="s1">showCurrentConfig</span><span class="s2">(</span><span class="s1">ConfigurationManager configManager</span><span class="s2">) {</span>
+        <span class="s1">String theme </span><span class="s2">= (</span><span class="s1">String</span><span class="s2">) </span><span class="s1">configManager</span><span class="s2">.</span><span class="s1">getConfigValue</span><span class="s2">(</span><span class="s4">&quot;theme&quot;</span><span class="s2">);</span>
+        <span class="s1">String color </span><span class="s2">= </span><span class="s1">theme</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s4">&quot;dark&quot;</span><span class="s2">) ? </span><span class="s1">BLUE </span><span class="s2">: </span><span class="s1">WHITE</span><span class="s2">;</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">color</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">=== CONFIGURACIÓN ACTUAL ===&quot;</span><span class="s2">);</span>
+        <span class="s1">Map</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">, </span><span class="s1">Object</span><span class="s2">&gt; </span><span class="s1">config </span><span class="s2">= </span><span class="s1">configManager</span><span class="s2">.</span><span class="s1">getAllConfig</span><span class="s2">();</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s1">Map</span><span class="s2">.</span><span class="s1">Entry</span><span class="s2">&lt;</span><span class="s1">String</span><span class="s2">, </span><span class="s1">Object</span><span class="s2">&gt; </span><span class="s1">entry </span><span class="s2">: </span><span class="s1">config</span><span class="s2">.</span><span class="s1">entrySet</span><span class="s2">()) {</span>
+            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">entry</span><span class="s2">.</span><span class="s1">getKey</span><span class="s2">() + </span><span class="s4">&quot;: &quot; </span><span class="s2">+ </span><span class="s1">entry</span><span class="s2">.</span><span class="s1">getValue</span><span class="s2">());</span>
+        <span class="s2">}</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;===========================</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">RESET</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private static void </span><span class="s1">changeConfiguration</span><span class="s2">(</span><span class="s1">ConfigurationManager configManager</span><span class="s2">, </span><span class="s1">Scanner scanner</span><span class="s2">) {</span>
+        <span class="s1">String theme </span><span class="s2">= (</span><span class="s1">String</span><span class="s2">) </span><span class="s1">configManager</span><span class="s2">.</span><span class="s1">getConfigValue</span><span class="s2">(</span><span class="s4">&quot;theme&quot;</span><span class="s2">);</span>
+        <span class="s1">String color </span><span class="s2">= </span><span class="s1">theme</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s4">&quot;dark&quot;</span><span class="s2">) ? </span><span class="s1">BLUE </span><span class="s2">: </span><span class="s1">WHITE</span><span class="s2">;</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">color</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">=== CAMBIAR CONFIGURACIÓN ===&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Parámetros disponibles:&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;1. defaultCurrency (CRC, USD)&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;2. timeFormat (24H o AM/PM)&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;3. maxConnections (número)&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;4. language (ES, EN)&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;5. autoSaveInterval (minutos, segundos)&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;6. enableLogs (true/false)&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;7. theme (light/dark)&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;8. region (LATAM, Asia, África, Europa, Oceanía)&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;9. backupEnabled (true/false)&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;10. backupDirectory (ruta)&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Seleccione el parámetro a modificar (1-10): &quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">RESET</span><span class="s2">);</span>
+
+        <span class="s0">int </span><span class="s1">paramOption </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+        <span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">(); </span><span class="s3">// Consumir el salto de línea</span>
+
+        <span class="s1">String key</span><span class="s2">;</span>
+        <span class="s1">Object value</span><span class="s2">;</span>
+        <span class="s1">Object oldValue </span><span class="s2">= </span><span class="s1">configManager</span><span class="s2">.</span><span class="s1">getConfigValue</span><span class="s2">(</span><span class="s1">getKeyFromOption</span><span class="s2">(</span><span class="s1">paramOption</span><span class="s2">));</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">color</span><span class="s2">); </span><span class="s3">// Aplicar color a la entrada de datos</span>
+
+        <span class="s0">switch </span><span class="s2">(</span><span class="s1">paramOption</span><span class="s2">) {</span>
+            <span class="s0">case </span><span class="s5">1</span><span class="s2">:</span>
+                <span class="s1">key </span><span class="s2">= </span><span class="s4">&quot;defaultCurrency&quot;</span><span class="s2">;</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Nueva moneda (CRC, USD): &quot;</span><span class="s2">);</span>
+                <span class="s1">value </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">().</span><span class="s1">toUpperCase</span><span class="s2">();</span>
+
+                <span class="s0">if </span><span class="s2">(!</span><span class="s1">value</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s1">oldValue</span><span class="s2">)) {</span>
+                    <span class="s0">if </span><span class="s2">(</span><span class="s1">value</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s4">&quot;CRC&quot;</span><span class="s2">) || </span><span class="s1">value</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s4">&quot;USD&quot;</span><span class="s2">)) {</span>
+                        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Digite el valor que desea transformar: &quot;</span><span class="s2">);</span>
+                        <span class="s0">double </span><span class="s1">amount </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextDouble</span><span class="s2">();</span>
+                        <span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">(); </span><span class="s3">// Limpiar buffer</span>
+
+                        <span class="s0">double </span><span class="s1">convertedAmount</span><span class="s2">;</span>
+                        <span class="s0">if </span><span class="s2">(</span><span class="s1">oldValue</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s4">&quot;USD&quot;</span><span class="s2">) &amp;&amp; </span><span class="s1">value</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s4">&quot;CRC&quot;</span><span class="s2">)) {</span>
+                            <span class="s1">convertedAmount </span><span class="s2">= </span><span class="s1">amount </span><span class="s2">* </span><span class="s5">505.17</span><span class="s2">;</span>
+                            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">printf</span><span class="s2">(</span><span class="s4">&quot;&gt;&gt; Conversión: USD %.2f → CRC %.2f</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">, </span><span class="s1">amount</span><span class="s2">, </span><span class="s1">convertedAmount</span><span class="s2">);</span>
+                        <span class="s2">} </span><span class="s0">else if </span><span class="s2">(</span><span class="s1">oldValue</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s4">&quot;CRC&quot;</span><span class="s2">) &amp;&amp; </span><span class="s1">value</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s4">&quot;USD&quot;</span><span class="s2">)) {</span>
+                            <span class="s1">convertedAmount </span><span class="s2">= </span><span class="s1">amount </span><span class="s2">/ </span><span class="s5">505.17</span><span class="s2">;</span>
+                            <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">printf</span><span class="s2">(</span><span class="s4">&quot;&gt;&gt; Conversión: CRC %.2f → USD %.2f</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">, </span><span class="s1">amount</span><span class="s2">, </span><span class="s1">convertedAmount</span><span class="s2">);</span>
+                        <span class="s2">}</span>
+                    <span class="s2">}</span>
+                <span class="s2">}</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">2</span><span class="s2">:</span>
+                <span class="s1">key </span><span class="s2">= </span><span class="s4">&quot;timeFormat&quot;</span><span class="s2">;</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Nuevo formato (24H o AM/PM): &quot;</span><span class="s2">);</span>
+                <span class="s1">value </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">3</span><span class="s2">:</span>
+                <span class="s1">key </span><span class="s2">= </span><span class="s4">&quot;maxConnections&quot;</span><span class="s2">;</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Nuevo máximo de conexiones: &quot;</span><span class="s2">);</span>
+                <span class="s1">value </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+                <span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">4</span><span class="s2">:</span>
+                <span class="s1">key </span><span class="s2">= </span><span class="s4">&quot;language&quot;</span><span class="s2">;</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Nuevo idioma (ES, EN): &quot;</span><span class="s2">);</span>
+                <span class="s1">value </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">5</span><span class="s2">:</span>
+                <span class="s1">key </span><span class="s2">= </span><span class="s4">&quot;autoSaveInterval&quot;</span><span class="s2">;</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Nuevo intervalo (minutos, segundos): &quot;</span><span class="s2">);</span>
+                <span class="s1">value </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextInt</span><span class="s2">();</span>
+                <span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">6</span><span class="s2">:</span>
+                <span class="s1">key </span><span class="s2">= </span><span class="s4">&quot;enableLogs&quot;</span><span class="s2">;</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Activar logs (true/false): &quot;</span><span class="s2">);</span>
+                <span class="s1">value </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextBoolean</span><span class="s2">();</span>
+                <span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">7</span><span class="s2">:</span>
+                <span class="s1">key </span><span class="s2">= </span><span class="s4">&quot;theme&quot;</span><span class="s2">;</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Nuevo tema (light/dark): &quot;</span><span class="s2">);</span>
+                <span class="s1">value </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">8</span><span class="s2">:</span>
+                <span class="s1">key </span><span class="s2">= </span><span class="s4">&quot;region&quot;</span><span class="s2">;</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Nueva región (LATAM, Asia, África, Europa, Oceanía): &quot;</span><span class="s2">);</span>
+                <span class="s1">value </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">9</span><span class="s2">:</span>
+                <span class="s1">key </span><span class="s2">= </span><span class="s4">&quot;backupEnabled&quot;</span><span class="s2">;</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Activar respaldos (true/false): &quot;</span><span class="s2">);</span>
+                <span class="s1">value </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextBoolean</span><span class="s2">();</span>
+                <span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">10</span><span class="s2">:</span>
+                <span class="s1">key </span><span class="s2">= </span><span class="s4">&quot;backupDirectory&quot;</span><span class="s2">;</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s4">&quot;Nueva ruta de respaldo: &quot;</span><span class="s2">);</span>
+                <span class="s1">value </span><span class="s2">= </span><span class="s1">scanner</span><span class="s2">.</span><span class="s1">nextLine</span><span class="s2">();</span>
+                <span class="s0">break</span><span class="s2">;</span>
+            <span class="s0">default</span><span class="s2">:</span>
+                <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Opción no válida.&quot;</span><span class="s2">);</span>
+                <span class="s0">return</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s3">// Actualizar configuración y mostrar mensaje</span>
+        <span class="s1">configManager</span><span class="s2">.</span><span class="s1">setConfigValue</span><span class="s2">(</span><span class="s1">key</span><span class="s2">, </span><span class="s1">value</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">printf</span><span class="s2">(</span><span class="s4">&quot;&gt;&gt; Parámetro '%s' cambiado de '%s' a '%s'.</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">, </span><span class="s1">key</span><span class="s2">, </span><span class="s1">oldValue</span><span class="s2">, </span><span class="s1">value</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Configuración actualizada con éxito.</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">RESET</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">private static </span><span class="s1">String getKeyFromOption</span><span class="s2">(</span><span class="s0">int </span><span class="s1">option</span><span class="s2">) {</span>
+        <span class="s0">switch </span><span class="s2">(</span><span class="s1">option</span><span class="s2">) {</span>
+            <span class="s0">case </span><span class="s5">1</span><span class="s2">: </span><span class="s0">return </span><span class="s4">&quot;defaultCurrency&quot;</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">2</span><span class="s2">: </span><span class="s0">return </span><span class="s4">&quot;timeFormat&quot;</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">3</span><span class="s2">: </span><span class="s0">return </span><span class="s4">&quot;maxConnections&quot;</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">4</span><span class="s2">: </span><span class="s0">return </span><span class="s4">&quot;language&quot;</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">5</span><span class="s2">: </span><span class="s0">return </span><span class="s4">&quot;autoSaveInterval&quot;</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">6</span><span class="s2">: </span><span class="s0">return </span><span class="s4">&quot;enableLogs&quot;</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">7</span><span class="s2">: </span><span class="s0">return </span><span class="s4">&quot;theme&quot;</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">8</span><span class="s2">: </span><span class="s0">return </span><span class="s4">&quot;region&quot;</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">9</span><span class="s2">: </span><span class="s0">return </span><span class="s4">&quot;backupEnabled&quot;</span><span class="s2">;</span>
+            <span class="s0">case </span><span class="s5">10</span><span class="s2">: </span><span class="s0">return </span><span class="s4">&quot;backupDirectory&quot;</span><span class="s2">;</span>
+            <span class="s0">default</span><span class="s2">: </span><span class="s0">return </span><span class="s4">&quot;&quot;</span><span class="s2">;</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>

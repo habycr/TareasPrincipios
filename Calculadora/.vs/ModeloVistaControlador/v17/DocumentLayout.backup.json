@@ -1,0 +1,143 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\dylan\\source\\repos\\ModeloVistaControlador\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FBA66A60-3802-4E9C-8F68-560D064C97A6}|ModeloVistaControlador.csproj|c:\\users\\dylan\\source\\repos\\modelovistacontrolador\\logica\\controlador\\controlador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBA66A60-3802-4E9C-8F68-560D064C97A6}|ModeloVistaControlador.csproj|solutionrelative:logica\\controlador\\controlador.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBA66A60-3802-4E9C-8F68-560D064C97A6}|ModeloVistaControlador.csproj|c:\\users\\dylan\\source\\repos\\modelovistacontrolador\\interfaz\\vista\\interfaz.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBA66A60-3802-4E9C-8F68-560D064C97A6}|ModeloVistaControlador.csproj|solutionrelative:interfaz\\vista\\interfaz.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBA66A60-3802-4E9C-8F68-560D064C97A6}|ModeloVistaControlador.csproj|c:\\users\\dylan\\source\\repos\\modelovistacontrolador\\interfaz\\vista\\interfaz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBA66A60-3802-4E9C-8F68-560D064C97A6}|ModeloVistaControlador.csproj|solutionrelative:interfaz\\vista\\interfaz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBA66A60-3802-4E9C-8F68-560D064C97A6}|ModeloVistaControlador.csproj|c:\\users\\dylan\\source\\repos\\modelovistacontrolador\\logica\\modelo\\logicamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBA66A60-3802-4E9C-8F68-560D064C97A6}|ModeloVistaControlador.csproj|solutionrelative:logica\\modelo\\logicamodelo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBA66A60-3802-4E9C-8F68-560D064C97A6}|ModeloVistaControlador.csproj|c:\\users\\dylan\\source\\repos\\modelovistacontrolador\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBA66A60-3802-4E9C-8F68-560D064C97A6}|ModeloVistaControlador.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBA66A60-3802-4E9C-8F68-560D064C97A6}|ModeloVistaControlador.csproj|c:\\users\\dylan\\source\\repos\\modelovistacontrolador\\interfaz\\vista\\interfaz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FBA66A60-3802-4E9C-8F68-560D064C97A6}|ModeloVistaControlador.csproj|solutionrelative:interfaz\\vista\\interfaz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 742,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Interfaz.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\dylan\\source\\repos\\ModeloVistaControlador\\Interfaz\\Vista\\Interfaz.cs",
+              "RelativeDocumentMoniker": "Interfaz\\Vista\\Interfaz.cs",
+              "ToolTip": "C:\\Users\\dylan\\source\\repos\\ModeloVistaControlador\\Interfaz\\Vista\\Interfaz.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Interfaz\\Vista\\Interfaz.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-30T17:15:54.28Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\dylan\\source\\repos\\ModeloVistaControlador\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\dylan\\source\\repos\\ModeloVistaControlador\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAIAwwBQAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T07:21:12.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LogicaModelo.cs",
+              "DocumentMoniker": "C:\\Users\\dylan\\source\\repos\\ModeloVistaControlador\\Logica\\Modelo\\LogicaModelo.cs",
+              "RelativeDocumentMoniker": "Logica\\Modelo\\LogicaModelo.cs",
+              "ToolTip": "C:\\Users\\dylan\\source\\repos\\ModeloVistaControlador\\Logica\\Modelo\\LogicaModelo.cs",
+              "RelativeToolTip": "Logica\\Modelo\\LogicaModelo.cs",
+              "ViewState": "AgIAADIAAAAAAAAAAAA9wAwAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T18:52:49.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Interfaz.cs",
+              "DocumentMoniker": "C:\\Users\\dylan\\source\\repos\\ModeloVistaControlador\\Interfaz\\Vista\\Interfaz.cs",
+              "RelativeDocumentMoniker": "Interfaz\\Vista\\Interfaz.cs",
+              "ToolTip": "C:\\Users\\dylan\\source\\repos\\ModeloVistaControlador\\Interfaz\\Vista\\Interfaz.cs",
+              "RelativeToolTip": "Interfaz\\Vista\\Interfaz.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T01:24:09.711Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Interfaz.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\dylan\\source\\repos\\ModeloVistaControlador\\Interfaz\\Vista\\Interfaz.Designer.cs",
+              "RelativeDocumentMoniker": "Interfaz\\Vista\\Interfaz.Designer.cs",
+              "ToolTip": "C:\\Users\\dylan\\source\\repos\\ModeloVistaControlador\\Interfaz\\Vista\\Interfaz.Designer.cs",
+              "RelativeToolTip": "Interfaz\\Vista\\Interfaz.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-26T01:09:40.884Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "controlador.cs",
+              "DocumentMoniker": "C:\\Users\\dylan\\source\\repos\\ModeloVistaControlador\\Logica\\Controlador\\controlador.cs",
+              "RelativeDocumentMoniker": "Logica\\Controlador\\controlador.cs",
+              "ToolTip": "C:\\Users\\dylan\\source\\repos\\ModeloVistaControlador\\Logica\\Controlador\\controlador.cs",
+              "RelativeToolTip": "Logica\\Controlador\\controlador.cs",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAAAKMAAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-25T23:53:51.025Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

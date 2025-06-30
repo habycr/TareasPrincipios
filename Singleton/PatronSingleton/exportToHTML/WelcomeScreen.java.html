@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>WelcomeScreen.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #7a7e85;}
+.s4 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+WelcomeScreen.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">text</span><span class="s2">.</span><span class="s1">SimpleDateFormat</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">java</span><span class="s2">.</span><span class="s1">util</span><span class="s2">.</span><span class="s1">Date</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">WelcomeScreen </span><span class="s2">{</span>
+    <span class="s0">private final </span><span class="s1">ConfigurationManager configManager</span><span class="s2">;</span>
+
+    <span class="s0">public </span><span class="s1">WelcomeScreen</span><span class="s2">() {</span>
+        <span class="s0">this</span><span class="s2">.</span><span class="s1">configManager </span><span class="s2">= </span><span class="s1">ConfigurationManager</span><span class="s2">.</span><span class="s1">getInstance</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">display</span><span class="s2">() {</span>
+        <span class="s3">// Obtener tema actual</span>
+        <span class="s1">String theme </span><span class="s2">= (</span><span class="s1">String</span><span class="s2">) </span><span class="s1">configManager</span><span class="s2">.</span><span class="s1">getConfigValue</span><span class="s2">(</span><span class="s4">&quot;theme&quot;</span><span class="s2">);</span>
+        <span class="s1">String color </span><span class="s2">= </span><span class="s1">theme</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s4">&quot;dark&quot;</span><span class="s2">) ? </span><span class="s1">ConsoleColors</span><span class="s2">.</span><span class="s1">BLUE </span><span class="s2">: </span><span class="s1">ConsoleColors</span><span class="s2">.</span><span class="s1">WHITE</span><span class="s2">;</span>
+
+        <span class="s3">// Aplicar color al texto</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">color</span><span class="s2">); </span><span class="s3">// Cambia el color aquí</span>
+
+        <span class="s3">// Resto del código (sin cambios)</span>
+        <span class="s1">String language </span><span class="s2">= (</span><span class="s1">String</span><span class="s2">) </span><span class="s1">configManager</span><span class="s2">.</span><span class="s1">getConfigValue</span><span class="s2">(</span><span class="s4">&quot;language&quot;</span><span class="s2">);</span>
+        <span class="s1">String timeFormat </span><span class="s2">= (</span><span class="s1">String</span><span class="s2">) </span><span class="s1">configManager</span><span class="s2">.</span><span class="s1">getConfigValue</span><span class="s2">(</span><span class="s4">&quot;timeFormat&quot;</span><span class="s2">);</span>
+        <span class="s1">String welcomeMessage </span><span class="s2">= </span><span class="s1">language</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s4">&quot;ES&quot;</span><span class="s2">) ?</span>
+                <span class="s4">&quot;¡Bienvenido al sistema!&quot; </span><span class="s2">: </span><span class="s4">&quot;Welcome to the system!&quot;</span><span class="s2">;</span>
+        <span class="s1">String timePattern </span><span class="s2">= </span><span class="s1">timeFormat</span><span class="s2">.</span><span class="s1">equals</span><span class="s2">(</span><span class="s4">&quot;24H&quot;</span><span class="s2">) ? </span><span class="s4">&quot;HH:mm:ss&quot; </span><span class="s2">: </span><span class="s4">&quot;hh:mm:ss a&quot;</span><span class="s2">;</span>
+        <span class="s1">String currentTime </span><span class="s2">= </span><span class="s0">new </span><span class="s1">SimpleDateFormat</span><span class="s2">(</span><span class="s1">timePattern</span><span class="s2">).</span><span class="s1">format</span><span class="s2">(</span><span class="s0">new </span><span class="s1">Date</span><span class="s2">());</span>
+
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;</span><span class="s0">\n</span><span class="s4">=== PANEL DE BIENVENIDA ===&quot;</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s1">welcomeMessage</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Hora actual: &quot; </span><span class="s2">+ </span><span class="s1">currentTime</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;Tema: &quot; </span><span class="s2">+ </span><span class="s1">theme</span><span class="s2">);</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">println</span><span class="s2">(</span><span class="s4">&quot;==========================</span><span class="s0">\n</span><span class="s4">&quot;</span><span class="s2">);</span>
+
+        <span class="s3">// Resetear color al final</span>
+        <span class="s1">System</span><span class="s2">.</span><span class="s1">out</span><span class="s2">.</span><span class="s1">print</span><span class="s2">(</span><span class="s1">ConsoleColors</span><span class="s2">.</span><span class="s1">RESET</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>

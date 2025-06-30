@@ -1,0 +1,55 @@
+Estructura del directorio: C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\1_Restaurante_Decorador\.vs\Solution\RestauranteApp.Core
+
+RestauranteApp.Core
+├── Constants
+│   ├── PreciosConstants.cs
+├── Decorators
+│   ├── AguacateDecorator.cs
+│   ├── DobleProteinaDecorator.cs
+│   ├── ExtraQuesoDecorator.cs
+│   ├── SandwichDecorator.cs
+│   ├── SopaDecorator.cs
+│   ├── TocinoDecorator.cs
+│   ├── VerdurasExtraDecorator.cs
+├── Enums
+│   ├── TamanoSandwich.cs
+│   ├── TipoProteina.cs
+├── Factories
+│   ├── SandwichFactory.cs
+├── Interfaces
+│   ├── ISandwich.cs
+├── Models
+│   ├── DetalleOrden.cs
+│   ├── Orden.cs
+│   ├── PrecioAdicional.cs
+├── RestauranteApp.Core.csproj
+├── Sandwiches
+│   ├── SandwichBase.cs
+│   ├── SandwichBeef.cs
+│   ├── SandwichPavo.cs
+│   ├── SandwichPollo.cs
+├── Services
+│   ├── OrdenService.cs
+│   ├── PrecioService.cs
+├── tree_custom_files_COMPLETO.txt
+├── tree_with_content_COMPLETO.txt
+
+================================================================================
+CONTENIDO DE ARCHIVOS ESPECÍFICOS
+================================================================================
+
+PreciosConstants.java: [Archivo no encontrado]
+
+
+DecoradoresSandwich.java: [Archivo no encontrado]
+
+
+SandwichDecorator.java: [Archivo no encontrado]
+
+
+TamanoSandwich.java: [Archivo no encontrado]
+
+
+TipoProteina.java: [Archivo no encontrado]
+
+

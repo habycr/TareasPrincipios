@@ -1,0 +1,55 @@
+Estructura del directorio: C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\2_Singleton\PatronSingleton
+
+PatronSingleton
+├── .gitignore
+├── .idea
+│   ├── .gitignore
+│   ├── compiler.xml
+│   ├── jarRepositories.xml
+│   ├── misc.xml
+│   ├── modules.xml
+├── PatronSingleton.iml
+├── config.json
+├── exportToHTML
+│   ├── ConfigurationLoader.java.html
+│   ├── ConfigurationManager.java.html
+│   ├── ConnectionSimulator.java.html
+│   ├── ConsoleColors.java.html
+│   ├── Main.java.html
+│   ├── WelcomeScreen.java.html
+│   ├── config.json.html
+│   ├── index.html
+├── pom.xml
+├── src
+│   ├── ConfigurationLoader.java
+│   ├── ConfigurationManager.java
+│   ├── ConnectionSimulator.java
+│   ├── ConsoleColors.java
+│   ├── Main.java
+│   ├── WelcomeScreen.java
+│   ├── config.json
+├── target
+│   ├── classes
+│   │   ├── config.json
+├── tree_custom_files_COMPLETO.txt
+├── tree_with_content_COMPLETO.txt
+
+================================================================================
+CONTENIDO DE ARCHIVOS ESPECÍFICOS
+================================================================================
+
+PreciosConstants.java: [Archivo no encontrado]
+
+
+DecoradoresSandwich.java: [Archivo no encontrado]
+
+
+SandwichDecorator.java: [Archivo no encontrado]
+
+
+TamanoSandwich.java: [Archivo no encontrado]
+
+
+TipoProteina.java: [Archivo no encontrado]
+
+

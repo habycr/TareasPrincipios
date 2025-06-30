@@ -1,0 +1,2569 @@
+Estructura del directorio: C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\1_Restaurante_Decorador\.vs\Solution\RestauranteApp.Core
+
+RestauranteApp.Core
+├── Constants
+│   ├── PreciosConstants.cs
+├── Decorators
+│   ├── AguacateDecorator.cs
+│   ├── DobleProteinaDecorator.cs
+│   ├── ExtraQuesoDecorator.cs
+│   ├── SandwichDecorator.cs
+│   ├── SopaDecorator.cs
+│   ├── TocinoDecorator.cs
+│   ├── VerdurasExtraDecorator.cs
+├── Enums
+│   ├── TamanoSandwich.cs
+│   ├── TipoProteina.cs
+├── Factories
+│   ├── SandwichFactory.cs
+├── Interfaces
+│   ├── ISandwich.cs
+├── Models
+│   ├── DetalleOrden.cs
+│   ├── Orden.cs
+│   ├── PrecioAdicional.cs
+├── RestauranteApp.Core.csproj
+├── Sandwiches
+│   ├── SandwichBase.cs
+│   ├── SandwichBeef.cs
+│   ├── SandwichPavo.cs
+│   ├── SandwichPollo.cs
+├── Services
+│   ├── OrdenService.cs
+│   ├── PrecioService.cs
+├── tree_with_content_COMPLETO.txt
+
+================================================================================
+CONTENIDO DE ARCHIVOS
+================================================================================
+
+PreciosConstants.cs:
+--------------------
+﻿using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Models;
+
+namespace RestauranteApp.Core.Constants
+{
+    /// <summary>
+    /// Constantes de precios para sándwiches y adicionales del restaurante
+    /// </summary>
+    public static class PreciosConstants
+    {
+        #region Precios Base de Sándwiches
+
+        /// <summary>
+        /// Precios base del sándwich de Pavo
+        /// </summary>
+        public static readonly Dictionary<TamanoSandwich, decimal> PreciosPavo = new()
+        {
+            { TamanoSandwich.Pequeno15cm, 12.0m },
+            { TamanoSandwich.Grande30cm, 18.0m }
+        };
+
+        /// <summary>
+        /// Precios base del sándwich de Beef
+        /// </summary>
+        public static readonly Dictionary<TamanoSandwich, decimal> PreciosBeef = new()
+        {
+            { TamanoSandwich.Pequeno15cm, 14.0m },
+            { TamanoSandwich.Grande30cm, 20.0m }
+        };
+
+        /// <summary>
+        /// Precios base del sándwich de Pollo
+        /// </summary>
+        public static readonly Dictionary<TamanoSandwich, decimal> PreciosPollo = new()
+        {
+            { TamanoSandwich.Pequeno15cm, 12.0m },
+            { TamanoSandwich.Grande30cm, 16.0m }
+        };
+
+        #endregion
+
+        #region Precios de Adicionales
+
+        /// <summary>
+        /// Precio del adicional Aguacate
+        /// </summary>
+        public static readonly PrecioAdicional PrecioAguacate = new(1.5m, 2.0m);
+
+        /// <summary>
+        /// Precio del adicional Doble Proteína
+        /// </summary>
+        public static readonly PrecioAdicional PrecioDobleProteina = new(4.5m, 6.0m);
+
+        /// <summary>
+        /// Precio del adicional Sopa
+        /// </summary>
+        public static readonly PrecioAdicional PrecioSopa = new(3.0m, 4.2m);
+
+        /// <summary>
+        /// Precio del adicional Extra Queso
+        /// </summary>
+        public static readonly PrecioAdicional PrecioExtraQueso = new(2.0m, 2.8m);
+
+        /// <summary>
+        /// Precio del adicional Tocino
+        /// </summary>
+        public static readonly PrecioAdicional PrecioTocino = new(3.5m, 4.5m);
+
+        /// <summary>
+        /// Precio del adicional Verduras Extra
+        /// </summary>
+        public static readonly PrecioAdicional PrecioVerdurasExtra = new(1.0m, 1.5m);
+
+        #endregion
+
+        #region Métodos Helper
+
+        /// <summary>
+        /// Obtiene el precio base de un sándwich según su tipo y tamaño
+        /// </summary>
+        /// <param name="tipoProteina">Tipo de proteína del sándwich</param>
+        /// <param name="tamano">Tamaño del sándwich</param>
+        /// <returns>Precio base del sándwich</returns>
+        /// <exception cref="ArgumentException">Si el tipo de proteína no es válido</exception>
+        public static decimal ObtenerPrecioBase(TipoProteina tipoProteina, TamanoSandwich tamano)
+        {
+            var preciosSandwich = tipoProteina switch
+            {
+                TipoProteina.Pavo => PreciosPavo,
+                TipoProteina.Beef => PreciosBeef,
+                TipoProteina.Pollo => PreciosPollo,
+                _ => throw new ArgumentException($"Tipo de proteína no válido: {tipoProteina}")
+            };
+
+            if (preciosSandwich.TryGetValue(tamano, out var precio))
+            {
+                return precio;
+            }
+
+            throw new ArgumentException($"Tamaño no válido: {tamano}");
+        }
+
+        /// <summary>
+        /// Obtiene todos los precios de adicionales disponibles
+        /// </summary>
+        /// <returns>Diccionario con nombre del adicional y sus precios</returns>
+        public static Dictionary<string, PrecioAdicional> ObtenerTodosLosAdicionales()
+        {
+            return new Dictionary<string, PrecioAdicional>
+            {
+                { "Aguacate", PrecioAguacate },
+                { "Doble Proteína", PrecioDobleProteina },
+                { "Sopa", PrecioSopa },
+                { "Extra Queso", PrecioExtraQueso },
+                { "Tocino", PrecioTocino },
+                { "Verduras Extra", PrecioVerdurasExtra }
+            };
+        }
+
+        #endregion
+    }
+}
+
+--------------------------------------------------
+
+AguacateDecorator.cs:
+---------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Constants;
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Decorators
+{
+    /// <summary>
+    /// Decorador que agrega Aguacate a un sándwich
+    /// </summary>
+    public class AguacateDecorator : SandwichDecorator
+    {
+        /// <summary>
+        /// Constructor del decorador de Aguacate
+        /// </summary>
+        /// <param name="sandwich">Sándwich base al que se le agrega aguacate</param>
+        public AguacateDecorator(ISandwich sandwich)
+            : base(
+                sandwich,
+                "Aguacate",
+                PreciosConstants.PrecioAguacate.ObtenerPrecio(sandwich.GetTamano())
+              )
+        {
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+DobleProteinaDecorator.cs:
+--------------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Constants;
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Decorators
+{
+    /// <summary>
+    /// Decorador que agrega Doble Proteína a un sándwich
+    /// </summary>
+    public class DobleProteinaDecorator : SandwichDecorator
+    {
+        /// <summary>
+        /// Constructor del decorador de Doble Proteína
+        /// </summary>
+        /// <param name="sandwich">Sándwich base al que se le agrega doble proteína</param>
+        public DobleProteinaDecorator(ISandwich sandwich)
+            : base(
+                sandwich,
+                "Doble Proteína",
+                PreciosConstants.PrecioDobleProteina.ObtenerPrecio(sandwich.GetTamano())
+              )
+        {
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+ExtraQuesoDecorator.cs:
+-----------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Constants;
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Decorators
+{
+    /// <summary>
+    /// Decorador que agrega Extra Queso a un sándwich
+    /// </summary>
+    public class ExtraQuesoDecorator : SandwichDecorator
+    {
+        /// <summary>
+        /// Constructor del decorador de Extra Queso
+        /// </summary>
+        /// <param name="sandwich">Sándwich base al que se le agrega extra queso</param>
+        public ExtraQuesoDecorator(ISandwich sandwich)
+            : base(
+                sandwich,
+                "Extra Queso",
+                PreciosConstants.PrecioExtraQueso.ObtenerPrecio(sandwich.GetTamano())
+              )
+        {
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+SandwichDecorator.cs:
+---------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Decorators
+{
+    /// <summary>
+    /// Clase base abstracta para todos los decoradores de sándwiches (adicionales)
+    /// Implementa ISandwich y delega al sándwich decorado
+    /// </summary>
+    public abstract class SandwichDecorator : ISandwich
+    {
+        /// <summary>
+        /// Sándwich al que se le aplica el decorador (componente base)
+        /// </summary>
+        protected ISandwich _sandwich;
+
+        /// <summary>
+        /// Nombre del adicional que representa este decorador
+        /// </summary>
+        protected readonly string _nombreAdicional;
+
+        /// <summary>
+        /// Precio adicional aplicado por este decorador
+        /// </summary>
+        protected readonly decimal _precioAdicional;
+
+        /// <summary>
+        /// Constructor del decorador
+        /// </summary>
+        /// <param name="sandwich">Sándwich a decorar</param>
+        /// <param name="nombreAdicional">Nombre del adicional</param>
+        /// <param name="precioAdicional">Precio adicional a aplicar</param>
+        protected SandwichDecorator(ISandwich sandwich, string nombreAdicional, decimal precioAdicional)
+        {
+            _sandwich = sandwich ?? throw new ArgumentNullException(nameof(sandwich));
+            _nombreAdicional = nombreAdicional;
+            _precioAdicional = precioAdicional;
+        }
+
+        public virtual string GetNombre()
+        {
+            return $"{_sandwich.GetNombre()} + {_nombreAdicional}";
+        }
+
+        public virtual decimal GetPrecio()
+        {
+            return _sandwich.GetPrecio() + _precioAdicional;
+        }
+
+        public virtual string GetDescripcion()
+        {
+            return $"{_sandwich.GetDescripcion()} + {_nombreAdicional} (${_precioAdicional:F1})";
+        }
+
+        public virtual TipoProteina GetTipoProteina()
+        {
+            return _sandwich.GetTipoProteina();
+        }
+
+        public virtual TamanoSandwich GetTamano()
+        {
+            return _sandwich.GetTamano();
+        }
+
+        public virtual IList<string> GetAdicionales()
+        {
+            var adicionales = _sandwich.GetAdicionales();
+            adicionales.Add(_nombreAdicional);
+            return adicionales;
+        }
+
+        public override string ToString()
+        {
+            return GetDescripcion();
+        }
+    }
+}
+
+
+--------------------------------------------------
+
+SopaDecorator.cs:
+-----------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Constants;
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Decorators
+{
+    /// <summary>
+    /// Decorador que agrega Sopa a un sándwich
+    /// </summary>
+    public class SopaDecorator : SandwichDecorator
+    {
+        /// <summary>
+        /// Constructor del decorador de Sopa
+        /// </summary>
+        /// <param name="sandwich">Sándwich base al que se le agrega sopa</param>
+        public SopaDecorator(ISandwich sandwich)
+            : base(
+                sandwich,
+                "Sopa",
+                PreciosConstants.PrecioSopa.ObtenerPrecio(sandwich.GetTamano())
+              )
+        {
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+TocinoDecorator.cs:
+-------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Constants;
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Decorators
+{
+    /// <summary>
+    /// Decorador que agrega Tocino a un sándwich
+    /// </summary>
+    public class TocinoDecorator : SandwichDecorator
+    {
+        /// <summary>
+        /// Constructor del decorador de Tocino
+        /// </summary>
+        /// <param name="sandwich">Sándwich base al que se le agrega aguacate</param>
+        public TocinoDecorator(ISandwich sandwich)
+            : base(
+                sandwich,
+                "Tocino",
+                PreciosConstants.PrecioTocino.ObtenerPrecio(sandwich.GetTamano())
+              )
+        {
+        }
+    }
+}
+
+
+--------------------------------------------------
+
+VerdurasExtraDecorator.cs:
+--------------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Constants;
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Decorators
+{
+    /// <summary>
+    /// Decorador que agrega Verduras Extra a un sándwich
+    /// </summary>
+    public class VerdurasExtraDecorator : SandwichDecorator
+    {
+        /// <summary>
+        /// Constructor del decorador de Verduras Extra
+        /// </summary>
+        /// <param name="sandwich">Sándwich base al que se le agrega verduras extra</param>
+        public VerdurasExtraDecorator(ISandwich sandwich)
+            : base(
+                sandwich,
+                "Verduras Extra",
+                PreciosConstants.PrecioVerdurasExtra.ObtenerPrecio(sandwich.GetTamano())
+              )
+        {
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+TamanoSandwich.cs:
+------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RestauranteApp.Core.Enums
+{
+    /// <summary>
+    /// Enumera los tamaños disponibles para los sándwiches
+    /// </summary>
+    public enum TamanoSandwich
+    {
+        /// <summary>
+        /// Sándwich pequeño de 15 centímetros
+        /// </summary>
+        Pequeno15cm,
+
+        /// <summary>
+        /// Sándwich grande de 30 centímetros
+        /// </summary>
+        Grande30cm
+    }
+}
+
+--------------------------------------------------
+
+TipoProteina.cs:
+----------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RestauranteApp.Core.Enums
+{
+    /// <summary>
+    /// Enumera los tipos de proteína disponibles para los sándwiches
+    /// </summary>
+    public enum TipoProteina
+    {
+        /// <summary>
+        /// Sándwich de pavo
+        /// </summary>        
+        Pavo,
+
+        /// <summary>
+        /// Sándwich de carne de res
+        /// </summary>
+        Beef,
+
+        /// <summary>
+        /// Sándwich de pollo
+        /// </summary>
+        Pollo
+    }
+}
+
+
+--------------------------------------------------
+
+SandwichFactory.cs:
+-------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+using RestauranteApp.Core.Sandwiches;
+
+namespace RestauranteApp.Core.Factories
+{
+    /// <summary>
+    /// Fábrica para crear instancias de sándwiches base según tipo de proteína y tamaño
+    /// </summary>
+    public static class SandwichFactory
+    {
+        /// <summary>
+        /// Crea un sándwich base del tipo y tamaño especificado
+        /// </summary>
+        /// <param name="tipoProteina">Tipo de proteína (Pavo, Beef, Pollo)</param>
+        /// <param name="tamano">Tamaño del sándwich (15cm o 30cm)</param>
+        /// <returns>Instancia de ISandwich correspondiente</returns>
+        /// <exception cref="ArgumentException">Si el tipo de proteína no es válido</exception>
+        public static ISandwich CrearSandwich(TipoProteina tipoProteina, TamanoSandwich tamano)
+        {
+            return tipoProteina switch
+            {
+                TipoProteina.Pavo => new SandwichPavo(tamano),
+                TipoProteina.Beef => new SandwichBeef(tamano),
+                TipoProteina.Pollo => new SandwichPollo(tamano),
+                _ => throw new ArgumentException($"Tipo de proteína no soportado: {tipoProteina}")
+            };
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+ISandwich.cs:
+-------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Enums;
+
+namespace RestauranteApp.Core.Interfaces
+{
+    /// <summary>
+    /// Interfaz principal para todos los sándwiches y decoradores (Patrón Decorator)
+    /// Define el contrato común que deben cumplir tanto los sándwiches base como los decorados
+    /// </summary>
+    public interface ISandwich
+    {
+        /// <summary>
+        /// Obtiene el nombre del sándwich (incluyendo adicionales si aplica)
+        /// </summary>
+        /// <returns>Nombre descriptivo del sándwich</returns>
+        string GetNombre();
+
+        /// <summary>
+        /// Obtiene el precio total del sándwich (incluyendo adicionales si aplica)
+        /// </summary>
+        /// <returns>Precio total calculado</returns>
+        decimal GetPrecio();
+
+        /// <summary>
+        /// Obtiene la descripción completa del sándwich con formato detallado
+        /// Incluye el nombre, tamaño, precio base y adicionales
+        /// </summary>
+        /// <returns>Descripción formateada para mostrar al cliente</returns>
+        string GetDescripcion();
+
+        /// <summary>
+        /// Obtiene el tipo de proteína del sándwich base
+        /// </summary>
+        /// <returns>Tipo de proteína (Pavo, Beef, Pollo)</returns>
+        TipoProteina GetTipoProteina();
+
+        /// <summary>
+        /// Obtiene el tamaño del sándwich
+        /// </summary>
+        /// <returns>Tamaño del sándwich (15cm o 30cm)</returns>
+        TamanoSandwich GetTamano();
+
+        /// <summary>
+        /// Obtiene una lista de todos los adicionales aplicados al sándwich
+        /// Útil para mostrar el desglose detallado
+        /// </summary>
+        /// <returns>Lista de nombres de adicionales</returns>
+        IList<string> GetAdicionales();
+    }
+}
+
+--------------------------------------------------
+
+DetalleOrden.cs:
+----------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Models
+{
+    /// <summary>
+    /// Representa un ítem individual dentro de una orden (un sándwich con sus adicionales)
+    /// </summary>
+    public class DetalleOrden
+    {
+        /// <summary>
+        /// Sándwich con todos sus adicionales aplicados (patrón Decorator)
+        /// </summary>
+        public ISandwich Sandwich { get; set; }
+
+        /// <summary>
+        /// Cantidad de este ítem en la orden
+        /// </summary>
+        public int Cantidad { get; set; }
+
+        /// <summary>
+        /// Constructor del detalle de orden
+        /// </summary>
+        /// <param name="sandwich">Sándwich decorado con adicionales</param>
+        /// <param name="cantidad">Cantidad de sándwiches</param>
+        public DetalleOrden(ISandwich sandwich, int cantidad = 1)
+        {
+            Sandwich = sandwich ?? throw new ArgumentNullException(nameof(sandwich));
+            Cantidad = cantidad > 0 ? cantidad : throw new ArgumentException("La cantidad debe ser mayor a cero", nameof(cantidad));
+        }
+
+        /// <summary>
+        /// Calcula el subtotal de este detalle (precio unitario * cantidad)
+        /// </summary>
+        /// <returns>Subtotal del detalle</returns>
+        public decimal CalcularSubtotal()
+        {
+            return Sandwich.GetPrecio() * Cantidad;
+        }
+
+        /// <summary>
+        /// Obtiene la descripción completa del detalle
+        /// </summary>
+        /// <returns>Descripción formateada del sándwich y cantidad</returns>
+        public string ObtenerDescripcionCompleta()
+        {
+            var descripcion = Sandwich.GetDescripcion();
+            var precio = Sandwich.GetPrecio();
+            var subtotal = CalcularSubtotal();
+
+            if (Cantidad > 1)
+            {
+                return $"{descripcion} (${precio:F1}) x{Cantidad} = ${subtotal:F1}";
+            }
+            else
+            {
+                return $"{descripcion} = ${subtotal:F1}";
+            }
+        }
+
+        public string DescripcionCompleta => ObtenerDescripcionCompleta();
+
+        /// <summary>
+        /// Representación en string del detalle
+        /// </summary>
+        /// <returns>Descripción completa como string</returns>
+        public override string ToString()
+        {
+            return ObtenerDescripcionCompleta();
+        }
+    }
+}
+
+
+--------------------------------------------------
+
+Orden.cs:
+---------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Interfaces;
+using System.Text;
+
+namespace RestauranteApp.Core.Models
+{
+    /// <summary>
+    /// Representa una orden completa del restaurante con múltiples sándwiches
+    /// </summary>
+    public class Orden
+    {
+        private readonly List<DetalleOrden> _detalles;
+
+        /// <summary>
+        /// Número único de la orden
+        /// </summary>
+        public int NumeroOrden { get; private set; }
+
+        /// <summary>
+        /// Fecha y hora de creación de la orden
+        /// </summary>
+        public DateTime FechaCreacion { get; private set; }
+
+        /// <summary>
+        /// Lista de detalles de la orden (solo lectura)
+        /// </summary>
+        public IReadOnlyList<DetalleOrden> Detalles => _detalles.AsReadOnly();
+
+        /// <summary>
+        /// Indica si la orden está vacía
+        /// </summary>
+        public bool EstaVacia => _detalles.Count == 0;
+
+        /// <summary>
+        /// Cantidad total de ítems en la orden
+        /// </summary>
+        public int CantidadTotalItems => _detalles.Sum(d => d.Cantidad);
+
+        /// <summary>
+        /// Constructor de la orden
+        /// </summary>
+        /// <param name="numeroOrden">Número único de la orden</param>
+        public Orden(int numeroOrden = 0)
+        {
+            NumeroOrden = numeroOrden > 0 ? numeroOrden : GenerarNumeroOrden();
+            FechaCreacion = DateTime.Now;
+            _detalles = new List<DetalleOrden>();
+        }
+
+        /// <summary>
+        /// Agrega un sándwich a la orden
+        /// </summary>
+        /// <param name="sandwich">Sándwich a agregar</param>
+        /// <param name="cantidad">Cantidad de sándwiches</param>
+        public void AgregarSandwich(ISandwich sandwich, int cantidad = 1)
+        {
+            if (sandwich == null)
+                throw new ArgumentNullException(nameof(sandwich));
+
+            if (cantidad <= 0)
+                throw new ArgumentException("La cantidad debe ser mayor a cero", nameof(cantidad));
+
+            var detalle = new DetalleOrden(sandwich, cantidad);
+            _detalles.Add(detalle);
+        }
+
+        /// <summary>
+        /// Remueve un detalle específico de la orden
+        /// </summary>
+        /// <param name="indice">Índice del detalle a remover</param>
+        /// <returns>True si se removió exitosamente</returns>
+        public bool RemoverDetalle(int indice)
+        {
+            if (indice >= 0 && indice < _detalles.Count)
+            {
+                _detalles.RemoveAt(indice);
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Limpia todos los detalles de la orden
+        /// </summary>
+        public void LimpiarOrden()
+        {
+            _detalles.Clear();
+        }
+
+        /// <summary>
+        /// Calcula el total de la orden
+        /// </summary>
+        /// <returns>Precio total de todos los sándwiches</returns>
+        public decimal CalcularTotal()
+        {
+            return _detalles.Sum(detalle => detalle.CalcularSubtotal());
+        }
+
+        /// <summary>
+        /// Genera el resumen completo de la orden
+        /// </summary>
+        /// <returns>String formateado con el detalle completo</returns>
+        public string GenerarResumen()
+        {
+            if (EstaVacia)
+            {
+                return "La orden está vacía.";
+            }
+
+            var sb = new StringBuilder();
+            sb.AppendLine("==================================================================");
+
+            foreach (var detalle in _detalles)
+            {
+                sb.AppendLine(detalle.ObtenerDescripcionCompleta());
+            }
+
+            sb.AppendLine("==================================================================");
+            sb.AppendLine($"TOTAL ${CalcularTotal():F1}");
+
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Genera un número de orden único basado en timestamp
+        /// </summary>
+        /// <returns>Número de orden único</returns>
+        private static int GenerarNumeroOrden()
+        {
+            return (int)(DateTime.Now.Ticks % int.MaxValue);
+        }
+
+        /// <summary>
+        /// Representación en string de la orden
+        /// </summary>
+        /// <returns>Resumen de la orden</returns>
+        public override string ToString()
+        {
+            return $"Orden #{NumeroOrden} - {CantidadTotalItems} ítems - Total: ${CalcularTotal():F1}";
+        }
+    }
+}
+
+
+--------------------------------------------------
+
+PrecioAdicional.cs:
+-------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Enums;
+
+namespace RestauranteApp.Core.Models
+{
+    /// <summary>
+    /// Representa el precio de un adicional según el tamaño del sándwich
+    /// </summary>
+    public class PrecioAdicional
+    {
+        /// <summary>
+        /// Precio para sándwich pequeño (15cm)
+        /// </summary>
+        public decimal PrecioPequeno { get; set; }
+
+        /// <summary>
+        /// Precio para sándwich grande (30cm)
+        /// </summary>
+        public decimal PrecioGrande { get; set; }
+
+        /// <summary>
+        /// Constructor con precios específicos
+        /// </summary>
+        /// <param name="precioPequeno">Precio para sándwich de 15cm</param>
+        /// <param name="precioGrande">Precio para sándwich de 30cm</param>
+        public PrecioAdicional(decimal precioPequeno, decimal precioGrande)
+        {
+            PrecioPequeno = precioPequeno;
+            PrecioGrande = precioGrande;
+        }
+
+        /// <summary>
+        /// Constructor con precio único para ambos tamaños
+        /// </summary>
+        /// <param name="precioUnico">Precio aplicable a ambos tamaños</param>
+        public PrecioAdicional(decimal precioUnico)
+        {
+            PrecioPequeno = precioUnico;
+            PrecioGrande = precioUnico;
+        }
+
+        /// <summary>
+        /// Obtiene el precio según el tamaño del sándwich
+        /// </summary>
+        /// <param name="tamano">Tamaño del sándwich</param>
+        /// <returns>Precio correspondiente al tamaño</returns>
+        public decimal ObtenerPrecio(TamanoSandwich tamano)
+        {
+            return tamano switch
+            {
+                TamanoSandwich.Pequeno15cm => PrecioPequeno,
+                TamanoSandwich.Grande30cm => PrecioGrande,
+                _ => throw new ArgumentException($"Tamaño de sándwich no válido: {tamano}")
+            };
+        }
+    }
+}   
+
+
+--------------------------------------------------
+
+SandwichBase.cs:
+----------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+using RestauranteApp.Core.Constants;
+
+namespace RestauranteApp.Core.Sandwiches
+{
+    /// <summary>
+    /// Clase base abstracta para todos los sándwiches
+    /// Implementa la interfaz ISandwich y proporciona funcionalidad común
+    /// </summary>
+    public abstract class SandwichBase : ISandwich
+    {
+        /// <summary>
+        /// Tipo de proteína del sándwich
+        /// </summary>
+        protected TipoProteina TipoProteina { get; }
+
+        /// <summary>
+        /// Tamaño del sándwich
+        /// </summary>
+        protected TamanoSandwich Tamano { get; }
+
+        /// <summary>
+        /// Precio base del sándwich
+        /// </summary>
+        protected decimal PrecioBase { get; }
+
+        /// <summary>
+        /// Constructor protegido para las clases derivadas
+        /// </summary>
+        /// <param name="tipoProteina">Tipo de proteína del sándwich</param>
+        /// <param name="tamano">Tamaño del sándwich</param>
+        protected SandwichBase(TipoProteina tipoProteina, TamanoSandwich tamano)
+        {
+            TipoProteina = tipoProteina;
+            Tamano = tamano;
+            PrecioBase = PreciosConstants.ObtenerPrecioBase(tipoProteina, tamano);
+        }
+
+        /// <summary>
+        /// Obtiene el nombre del sándwich basado en la proteína y tamaño
+        /// Las clases derivadas pueden sobrescribir este método para personalizar el nombre
+        /// </summary>
+        /// <returns>Nombre del sándwich</returns>
+        public virtual string GetNombre()
+        {
+            var nombreProteina = ObtenerNombreProteina();
+            var tamanoTexto = ObtenerTextoTamano();
+            return $"{nombreProteina} de {tamanoTexto}";
+        }
+
+        /// <summary>
+        /// Obtiene el precio del sándwich (solo precio base, sin adicionales)
+        /// </summary>
+        /// <returns>Precio base del sándwich</returns>
+        public virtual decimal GetPrecio()
+        {
+            return PrecioBase;
+        }
+
+        /// <summary>
+        /// Obtiene la descripción formateada del sándwich
+        /// Incluye nombre y precio base
+        /// </summary>
+        /// <returns>Descripción completa del sándwich</returns>
+        public virtual string GetDescripcion()
+        {
+            return $"{GetNombre()} (${GetPrecio():F1})";
+        }
+
+        /// <summary>
+        /// Obtiene el tipo de proteína del sándwich
+        /// </summary>
+        /// <returns>Tipo de proteína</returns>
+        public TipoProteina GetTipoProteina()
+        {
+            return TipoProteina;
+        }
+
+        /// <summary>
+        /// Obtiene el tamaño del sándwich
+        /// </summary>
+        /// <returns>Tamaño del sándwich</returns>
+        public TamanoSandwich GetTamano()
+        {
+            return Tamano;
+        }
+
+        /// <summary>
+        /// Obtiene la lista de adicionales del sándwich
+        /// Para sándwiches base, siempre retorna lista vacía
+        /// Los decoradores sobrescribirán este método
+        /// </summary>
+        /// <returns>Lista vacía para sándwiches base</returns>
+        public virtual IList<string> GetAdicionales()
+        {
+            return new List<string>();
+        }
+
+        /// <summary>
+        /// Método helper para obtener el nombre de la proteína en formato display
+        /// </summary>
+        /// <returns>Nombre de la proteína formateado</returns>
+        protected virtual string ObtenerNombreProteina()
+        {
+            return TipoProteina switch
+            {
+                TipoProteina.Pavo => "Pavo",
+                TipoProteina.Beef => "Beef",
+                TipoProteina.Pollo => "Pollo",
+                _ => TipoProteina.ToString()
+            };
+        }
+
+        /// <summary>
+        /// Método helper para obtener el texto del tamaño
+        /// </summary>
+        /// <returns>Texto descriptivo del tamaño</returns>
+        protected virtual string ObtenerTextoTamano()
+        {
+            return Tamano switch
+            {
+                TamanoSandwich.Pequeno15cm => "15 cm",
+                TamanoSandwich.Grande30cm => "30 cm",
+                _ => Tamano.ToString()
+            };
+        }
+
+        /// <summary>
+        /// Método abstracto que las clases derivadas deben implementar
+        /// para proporcionar información específica del tipo de sándwich
+        /// </summary>
+        /// <returns>Información específica del sándwich</returns>
+        public abstract string ObtenerInformacionEspecifica();
+
+        /// <summary>
+        /// Representación en string del sándwich
+        /// </summary>
+        /// <returns>Descripción del sándwich</returns>
+        public override string ToString()
+        {
+            return GetDescripcion();
+        }
+
+        /// <summary>
+        /// Método de comparación para verificar igualdad entre sándwiches
+        /// Dos sándwiches son iguales si tienen el mismo tipo de proteína y tamaño
+        /// </summary>
+        /// <param name="obj">Objeto a comparar</param>
+        /// <returns>True si son iguales</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj is SandwichBase other)
+            {
+                return TipoProteina == other.TipoProteina &&
+                       Tamano == other.Tamano;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Genera hash code basado en proteína y tamaño
+        /// </summary>
+        /// <returns>Hash code del sándwich</returns>
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(TipoProteina, Tamano);
+        }
+
+        /// <summary>
+        /// Valida si el sándwich tiene una configuración válida
+        /// </summary>
+        /// <returns>True si la configuración es válida</returns>
+        public virtual bool EsConfiguracionValida()
+        {
+            return PrecioBase > 0 &&
+                   Enum.IsDefined(typeof(TipoProteina), TipoProteina) &&
+                   Enum.IsDefined(typeof(TamanoSandwich), Tamano);
+        }
+    }
+}
+
+
+--------------------------------------------------
+
+SandwichBeef.cs:
+----------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Enums;
+
+namespace RestauranteApp.Core.Sandwiches
+{
+    /// <summary>
+    /// Implementación concreta de un sándwich de carne de res (beef)
+    /// </summary>
+    public class SandwichBeef : SandwichBase
+    {
+        /// <summary>
+        /// Constructor del sándwich de beef
+        /// </summary>
+        /// <param name="tamano">Tamaño del sándwich</param>
+        public SandwichBeef(TamanoSandwich tamano)
+            : base(TipoProteina.Beef, tamano)
+        {
+        }
+
+        /// <summary>
+        /// Devuelve información específica del sándwich
+        /// </summary>
+        /// <returns>Texto identificativo del tipo de sándwich</returns>
+        public override string ObtenerInformacionEspecifica()
+        {
+            return "Sándwich de Beef";
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+SandwichPavo.cs:
+----------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Enums;
+
+namespace RestauranteApp.Core.Sandwiches
+{
+    /// <summary>
+    /// Implementación concreta de un sándwich de pavo
+    /// </summary>
+    public class SandwichPavo : SandwichBase
+    {
+        /// <summary>
+        /// Constructor del sándwich de pavo
+        /// </summary>
+        /// <param name="tamano">Tamaño del sándwich</param>
+        public SandwichPavo(TamanoSandwich tamano)
+            : base(TipoProteina.Pavo, tamano)
+        {
+        }
+
+        /// <summary>
+        /// Devuelve información específica del sándwich
+        /// </summary>
+        /// <returns>Texto identificativo del tipo de sándwich</returns>
+        public override string ObtenerInformacionEspecifica()
+        {
+            return "Sándwich de Pavo";
+        }
+    }
+}
+
+
+--------------------------------------------------
+
+SandwichPollo.cs:
+-----------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Enums;
+
+namespace RestauranteApp.Core.Sandwiches
+{
+    /// <summary>
+    /// Implementación concreta de un sándwich de pollo
+    /// </summary>
+    public class SandwichPollo : SandwichBase
+    {
+        /// <summary>
+        /// Constructor del sándwich de pollo
+        /// </summary>
+        /// <param name="tamano">Tamaño del sándwich</param>
+        public SandwichPollo(TamanoSandwich tamano)
+            : base(TipoProteina.Pollo, tamano)
+        {
+        }
+
+        /// <summary>
+        /// Devuelve información específica del sándwich
+        /// </summary>
+        /// <returns>Texto identificativo del tipo de sándwich</returns>
+        public override string ObtenerInformacionEspecifica()
+        {
+            return "Sándwich de Pollo";
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+OrdenService.cs:
+----------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Models;
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Services
+{
+    /// <summary>
+    /// Servicio que encapsula la lógica de gestión de órdenes
+    /// </summary>
+    public class OrdenService
+    {
+        private readonly Orden _orden;
+
+        /// <summary>
+        /// Inicializa una nueva instancia del servicio para una orden
+        /// </summary>
+        public OrdenService()
+        {
+            _orden = new Orden();
+        }
+
+        /// <summary>
+        /// Devuelve la orden actual
+        /// </summary>
+        public Orden ObtenerOrdenActual()
+        {
+            return _orden;
+        }
+
+        /// <summary>
+        /// Agrega un sándwich a la orden actual
+        /// </summary>
+        public void AgregarSandwich(ISandwich sandwich, int cantidad = 1)
+        {
+            _orden.AgregarSandwich(sandwich, cantidad);
+        }
+
+        /// <summary>
+        /// Remueve un sándwich de la orden por índice
+        /// </summary>
+        public bool RemoverSandwich(int indice)
+        {
+            return _orden.RemoverDetalle(indice);
+        }
+
+        /// <summary>
+        /// Limpia la orden actual
+        /// </summary>
+        public void LimpiarOrden()
+        {
+            _orden.LimpiarOrden();
+        }
+
+        /// <summary>
+        /// Calcula el total de la orden actual
+        /// </summary>
+        public decimal CalcularTotal()
+        {
+            return _orden.CalcularTotal();
+        }
+
+        /// <summary>
+        /// Devuelve el resumen textual de la orden
+        /// </summary>
+        public string ObtenerResumen()
+        {
+            return _orden.GenerarResumen();
+        }
+
+        /// <summary>
+        /// Indica si la orden está vacía
+        /// </summary>
+        public bool EstaVacia()
+        {
+            return _orden.EstaVacia;
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+PrecioService.cs:
+-----------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Constants;
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Models;
+
+namespace RestauranteApp.Core.Services
+{
+    /// <summary>
+    /// Servicio responsable de manejar cálculos de precios
+    /// </summary>
+    public class PrecioService
+    {
+        /// <summary>
+        /// Obtiene el precio base de un sándwich dado su tipo de proteína y tamaño
+        /// </summary>
+        public decimal ObtenerPrecioBase(TipoProteina tipo, TamanoSandwich tamano)
+        {
+            return PreciosConstants.ObtenerPrecioBase(tipo, tamano);
+        }
+
+        /// <summary>
+        /// Obtiene el precio de un adicional según su nombre y tamaño
+        /// </summary>
+        public decimal ObtenerPrecioAdicional(string nombreAdicional, TamanoSandwich tamano)
+        {
+            var adicionales = PreciosConstants.ObtenerTodosLosAdicionales();
+            if (adicionales.TryGetValue(nombreAdicional, out var precioAdicional))
+            {
+                return precioAdicional.ObtenerPrecio(tamano);
+            }
+
+            throw new ArgumentException($"Adicional no reconocido: {nombreAdicional}");
+        }
+
+        /// <summary>
+        /// Devuelve todos los adicionales disponibles con sus precios según tamaño
+        /// </summary>
+        public Dictionary<string, decimal> ObtenerPreciosAdicionales(TamanoSandwich tamano)
+        {
+            var resultado = new Dictionary<string, decimal>();
+            var adicionales = PreciosConstants.ObtenerTodosLosAdicionales();
+
+            foreach (var kvp in adicionales)
+            {
+                resultado[kvp.Key] = kvp.Value.ObtenerPrecio(tamano);
+            }
+
+            return resultado;
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+tree_with_content_COMPLETO.txt:
+-------------------------------
+Estructura del directorio: C:\Users\Javier\OneDrive\Documentos\GitHub\Tareas-Patrones---Principios\1_Restaurante_Decorador\.vs\Solution\RestauranteApp.Core
+
+RestauranteApp.Core
+├── Constants
+│   ├── PreciosConstants.cs
+├── Decorators
+│   ├── AguacateDecorator.cs
+│   ├── DobleProteinaDecorator.cs
+│   ├── ExtraQuesoDecorator.cs
+│   ├── SandwichDecorator.cs
+│   ├── SopaDecorator.cs
+│   ├── TocinoDecorator.cs
+│   ├── VerdurasExtraDecorator.cs
+├── Enums
+│   ├── TamanoSandwich.cs
+│   ├── TipoProteina.cs
+├── Factories
+│   ├── SandwichFactory.cs
+├── Interfaces
+│   ├── ISandwich.cs
+├── Models
+│   ├── DetalleOrden.cs
+│   ├── Orden.cs
+│   ├── PrecioAdicional.cs
+├── RestauranteApp.Core.csproj
+├── Sandwiches
+│   ├── SandwichBase.cs
+│   ├── SandwichBeef.cs
+│   ├── SandwichPavo.cs
+│   ├── SandwichPollo.cs
+├── Services
+│   ├── OrdenService.cs
+│   ├── PrecioService.cs
+├── tree_with_content_COMPLETO.txt
+
+================================================================================
+CONTENIDO DE ARCHIVOS
+================================================================================
+
+PreciosConstants.cs:
+--------------------
+﻿using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Models;
+
+namespace RestauranteApp.Core.Constants
+{
+    /// <summary>
+    /// Constantes de precios para sándwiches y adicionales del restaurante
+    /// </summary>
+    public static class PreciosConstants
+    {
+        #region Precios Base de Sándwiches
+
+        /// <summary>
+        /// Precios base del sándwich de Pavo
+        /// </summary>
+        public static readonly Dictionary<TamanoSandwich, decimal> PreciosPavo = new()
+        {
+            { TamanoSandwich.Pequeno15cm, 12.0m },
+            { TamanoSandwich.Grande30cm, 18.0m }
+        };
+
+        /// <summary>
+        /// Precios base del sándwich de Beef
+        /// </summary>
+        public static readonly Dictionary<TamanoSandwich, decimal> PreciosBeef = new()
+        {
+            { TamanoSandwich.Pequeno15cm, 14.0m },
+            { TamanoSandwich.Grande30cm, 20.0m }
+        };
+
+        /// <summary>
+        /// Precios base del sándwich de Pollo
+        /// </summary>
+        public static readonly Dictionary<TamanoSandwich, decimal> PreciosPollo = new()
+        {
+            { TamanoSandwich.Pequeno15cm, 12.0m },
+            { TamanoSandwich.Grande30cm, 16.0m }
+        };
+
+        #endregion
+
+        #region Precios de Adicionales
+
+        /// <summary>
+        /// Precio del adicional Aguacate
+        /// </summary>
+        public static readonly PrecioAdicional PrecioAguacate = new(1.5m, 2.0m);
+
+        /// <summary>
+        /// Precio del adicional Doble Proteína
+        /// </summary>
+        public static readonly PrecioAdicional PrecioDobleProteina = new(4.5m, 6.0m);
+
+        /// <summary>
+        /// Precio del adicional Sopa
+        /// </summary>
+        public static readonly PrecioAdicional PrecioSopa = new(3.0m, 4.2m);
+
+        /// <summary>
+        /// Precio del adicional Extra Queso
+        /// </summary>
+        public static readonly PrecioAdicional PrecioExtraQueso = new(2.0m, 2.8m);
+
+        /// <summary>
+        /// Precio del adicional Tocino
+        /// </summary>
+        public static readonly PrecioAdicional PrecioTocino = new(3.5m, 4.5m);
+
+        /// <summary>
+        /// Precio del adicional Verduras Extra
+        /// </summary>
+        public static readonly PrecioAdicional PrecioVerdurasExtra = new(1.0m, 1.5m);
+
+        #endregion
+
+        #region Métodos Helper
+
+        /// <summary>
+        /// Obtiene el precio base de un sándwich según su tipo y tamaño
+        /// </summary>
+        /// <param name="tipoProteina">Tipo de proteína del sándwich</param>
+        /// <param name="tamano">Tamaño del sándwich</param>
+        /// <returns>Precio base del sándwich</returns>
+        /// <exception cref="ArgumentException">Si el tipo de proteína no es válido</exception>
+        public static decimal ObtenerPrecioBase(TipoProteina tipoProteina, TamanoSandwich tamano)
+        {
+            var preciosSandwich = tipoProteina switch
+            {
+                TipoProteina.Pavo => PreciosPavo,
+                TipoProteina.Beef => PreciosBeef,
+                TipoProteina.Pollo => PreciosPollo,
+                _ => throw new ArgumentException($"Tipo de proteína no válido: {tipoProteina}")
+            };
+
+            if (preciosSandwich.TryGetValue(tamano, out var precio))
+            {
+                return precio;
+            }
+
+            throw new ArgumentException($"Tamaño no válido: {tamano}");
+        }
+
+        /// <summary>
+        /// Obtiene todos los precios de adicionales disponibles
+        /// </summary>
+        /// <returns>Diccionario con nombre del adicional y sus precios</returns>
+        public static Dictionary<string, PrecioAdicional> ObtenerTodosLosAdicionales()
+        {
+            return new Dictionary<string, PrecioAdicional>
+            {
+                { "Aguacate", PrecioAguacate },
+                { "Doble Proteína", PrecioDobleProteina },
+                { "Sopa", PrecioSopa },
+                { "Extra Queso", PrecioExtraQueso },
+                { "Tocino", PrecioTocino },
+                { "Verduras Extra", PrecioVerdurasExtra }
+            };
+        }
+
+        #endregion
+    }
+}
+
+--------------------------------------------------
+
+AguacateDecorator.cs:
+---------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Constants;
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Decorators
+{
+    /// <summary>
+    /// Decorador que agrega Aguacate a un sándwich
+    /// </summary>
+    public class AguacateDecorator : SandwichDecorator
+    {
+        /// <summary>
+        /// Constructor del decorador de Aguacate
+        /// </summary>
+        /// <param name="sandwich">Sándwich base al que se le agrega aguacate</param>
+        public AguacateDecorator(ISandwich sandwich)
+            : base(
+                sandwich,
+                "Aguacate",
+                PreciosConstants.PrecioAguacate.ObtenerPrecio(sandwich.GetTamano())
+              )
+        {
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+DobleProteinaDecorator.cs:
+--------------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Constants;
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Decorators
+{
+    /// <summary>
+    /// Decorador que agrega Doble Proteína a un sándwich
+    /// </summary>
+    public class DobleProteinaDecorator : SandwichDecorator
+    {
+        /// <summary>
+        /// Constructor del decorador de Doble Proteína
+        /// </summary>
+        /// <param name="sandwich">Sándwich base al que se le agrega doble proteína</param>
+        public DobleProteinaDecorator(ISandwich sandwich)
+            : base(
+                sandwich,
+                "Doble Proteína",
+                PreciosConstants.PrecioDobleProteina.ObtenerPrecio(sandwich.GetTamano())
+              )
+        {
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+ExtraQuesoDecorator.cs:
+-----------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Constants;
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Decorators
+{
+    /// <summary>
+    /// Decorador que agrega Extra Queso a un sándwich
+    /// </summary>
+    public class ExtraQuesoDecorator : SandwichDecorator
+    {
+        /// <summary>
+        /// Constructor del decorador de Extra Queso
+        /// </summary>
+        /// <param name="sandwich">Sándwich base al que se le agrega extra queso</param>
+        public ExtraQuesoDecorator(ISandwich sandwich)
+            : base(
+                sandwich,
+                "Extra Queso",
+                PreciosConstants.PrecioExtraQueso.ObtenerPrecio(sandwich.GetTamano())
+              )
+        {
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+SandwichDecorator.cs:
+---------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Decorators
+{
+    /// <summary>
+    /// Clase base abstracta para todos los decoradores de sándwiches (adicionales)
+    /// Implementa ISandwich y delega al sándwich decorado
+    /// </summary>
+    public abstract class SandwichDecorator : ISandwich
+    {
+        /// <summary>
+        /// Sándwich al que se le aplica el decorador (componente base)
+        /// </summary>
+        protected ISandwich _sandwich;
+
+        /// <summary>
+        /// Nombre del adicional que representa este decorador
+        /// </summary>
+        protected readonly string _nombreAdicional;
+
+        /// <summary>
+        /// Precio adicional aplicado por este decorador
+        /// </summary>
+        protected readonly decimal _precioAdicional;
+
+        /// <summary>
+        /// Constructor del decorador
+        /// </summary>
+        /// <param name="sandwich">Sándwich a decorar</param>
+        /// <param name="nombreAdicional">Nombre del adicional</param>
+        /// <param name="precioAdicional">Precio adicional a aplicar</param>
+        protected SandwichDecorator(ISandwich sandwich, string nombreAdicional, decimal precioAdicional)
+        {
+            _sandwich = sandwich ?? throw new ArgumentNullException(nameof(sandwich));
+            _nombreAdicional = nombreAdicional;
+            _precioAdicional = precioAdicional;
+        }
+
+        public virtual string GetNombre()
+        {
+            return $"{_sandwich.GetNombre()} + {_nombreAdicional}";
+        }
+
+        public virtual decimal GetPrecio()
+        {
+            return _sandwich.GetPrecio() + _precioAdicional;
+        }
+
+        public virtual string GetDescripcion()
+        {
+            return $"{_sandwich.GetDescripcion()} + {_nombreAdicional} (${_precioAdicional:F1})";
+        }
+
+        public virtual TipoProteina GetTipoProteina()
+        {
+            return _sandwich.GetTipoProteina();
+        }
+
+        public virtual TamanoSandwich GetTamano()
+        {
+            return _sandwich.GetTamano();
+        }
+
+        public virtual IList<string> GetAdicionales()
+        {
+            var adicionales = _sandwich.GetAdicionales();
+            adicionales.Add(_nombreAdicional);
+            return adicionales;
+        }
+
+        public override string ToString()
+        {
+            return GetDescripcion();
+        }
+    }
+}
+
+
+--------------------------------------------------
+
+SopaDecorator.cs:
+-----------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Constants;
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Decorators
+{
+    /// <summary>
+    /// Decorador que agrega Sopa a un sándwich
+    /// </summary>
+    public class SopaDecorator : SandwichDecorator
+    {
+        /// <summary>
+        /// Constructor del decorador de Sopa
+        /// </summary>
+        /// <param name="sandwich">Sándwich base al que se le agrega sopa</param>
+        public SopaDecorator(ISandwich sandwich)
+            : base(
+                sandwich,
+                "Sopa",
+                PreciosConstants.PrecioSopa.ObtenerPrecio(sandwich.GetTamano())
+              )
+        {
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+TocinoDecorator.cs:
+-------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Constants;
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Decorators
+{
+    /// <summary>
+    /// Decorador que agrega Tocino a un sándwich
+    /// </summary>
+    public class TocinoDecorator : SandwichDecorator
+    {
+        /// <summary>
+        /// Constructor del decorador de Tocino
+        /// </summary>
+        /// <param name="sandwich">Sándwich base al que se le agrega aguacate</param>
+        public TocinoDecorator(ISandwich sandwich)
+            : base(
+                sandwich,
+                "Tocino",
+                PreciosConstants.PrecioTocino.ObtenerPrecio(sandwich.GetTamano())
+              )
+        {
+        }
+    }
+}
+
+
+--------------------------------------------------
+
+VerdurasExtraDecorator.cs:
+--------------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Constants;
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Decorators
+{
+    /// <summary>
+    /// Decorador que agrega Verduras Extra a un sándwich
+    /// </summary>
+    public class VerdurasExtraDecorator : SandwichDecorator
+    {
+        /// <summary>
+        /// Constructor del decorador de Verduras Extra
+        /// </summary>
+        /// <param name="sandwich">Sándwich base al que se le agrega verduras extra</param>
+        public VerdurasExtraDecorator(ISandwich sandwich)
+            : base(
+                sandwich,
+                "Verduras Extra",
+                PreciosConstants.PrecioVerdurasExtra.ObtenerPrecio(sandwich.GetTamano())
+              )
+        {
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+TamanoSandwich.cs:
+------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RestauranteApp.Core.Enums
+{
+    /// <summary>
+    /// Enumera los tamaños disponibles para los sándwiches
+    /// </summary>
+    public enum TamanoSandwich
+    {
+        /// <summary>
+        /// Sándwich pequeño de 15 centímetros
+        /// </summary>
+        Pequeno15cm,
+
+        /// <summary>
+        /// Sándwich grande de 30 centímetros
+        /// </summary>
+        Grande30cm
+    }
+}
+
+--------------------------------------------------
+
+TipoProteina.cs:
+----------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RestauranteApp.Core.Enums
+{
+    /// <summary>
+    /// Enumera los tipos de proteína disponibles para los sándwiches
+    /// </summary>
+    public enum TipoProteina
+    {
+        /// <summary>
+        /// Sándwich de pavo
+        /// </summary>        
+        Pavo,
+
+        /// <summary>
+        /// Sándwich de carne de res
+        /// </summary>
+        Beef,
+
+        /// <summary>
+        /// Sándwich de pollo
+        /// </summary>
+        Pollo
+    }
+}
+
+
+--------------------------------------------------
+
+SandwichFactory.cs:
+-------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+using RestauranteApp.Core.Sandwiches;
+
+namespace RestauranteApp.Core.Factories
+{
+    /// <summary>
+    /// Fábrica para crear instancias de sándwiches base según tipo de proteína y tamaño
+    /// </summary>
+    public static class SandwichFactory
+    {
+        /// <summary>
+        /// Crea un sándwich base del tipo y tamaño especificado
+        /// </summary>
+        /// <param name="tipoProteina">Tipo de proteína (Pavo, Beef, Pollo)</param>
+        /// <param name="tamano">Tamaño del sándwich (15cm o 30cm)</param>
+        /// <returns>Instancia de ISandwich correspondiente</returns>
+        /// <exception cref="ArgumentException">Si el tipo de proteína no es válido</exception>
+        public static ISandwich CrearSandwich(TipoProteina tipoProteina, TamanoSandwich tamano)
+        {
+            return tipoProteina switch
+            {
+                TipoProteina.Pavo => new SandwichPavo(tamano),
+                TipoProteina.Beef => new SandwichBeef(tamano),
+                TipoProteina.Pollo => new SandwichPollo(tamano),
+                _ => throw new ArgumentException($"Tipo de proteína no soportado: {tipoProteina}")
+            };
+        }
+    }
+}
+
+
+
+--------------------------------------------------
+
+ISandwich.cs:
+-------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Enums;
+
+namespace RestauranteApp.Core.Interfaces
+{
+    /// <summary>
+    /// Interfaz principal para todos los sándwiches y decoradores (Patrón Decorator)
+    /// Define el contrato común que deben cumplir tanto los sándwiches base como los decorados
+    /// </summary>
+    public interface ISandwich
+    {
+        /// <summary>
+        /// Obtiene el nombre del sándwich (incluyendo adicionales si aplica)
+        /// </summary>
+        /// <returns>Nombre descriptivo del sándwich</returns>
+        string GetNombre();
+
+        /// <summary>
+        /// Obtiene el precio total del sándwich (incluyendo adicionales si aplica)
+        /// </summary>
+        /// <returns>Precio total calculado</returns>
+        decimal GetPrecio();
+
+        /// <summary>
+        /// Obtiene la descripción completa del sándwich con formato detallado
+        /// Incluye el nombre, tamaño, precio base y adicionales
+        /// </summary>
+        /// <returns>Descripción formateada para mostrar al cliente</returns>
+        string GetDescripcion();
+
+        /// <summary>
+        /// Obtiene el tipo de proteína del sándwich base
+        /// </summary>
+        /// <returns>Tipo de proteína (Pavo, Beef, Pollo)</returns>
+        TipoProteina GetTipoProteina();
+
+        /// <summary>
+        /// Obtiene el tamaño del sándwich
+        /// </summary>
+        /// <returns>Tamaño del sándwich (15cm o 30cm)</returns>
+        TamanoSandwich GetTamano();
+
+        /// <summary>
+        /// Obtiene una lista de todos los adicionales aplicados al sándwich
+        /// Útil para mostrar el desglose detallado
+        /// </summary>
+        /// <returns>Lista de nombres de adicionales</returns>
+        IList<string> GetAdicionales();
+    }
+}
+
+--------------------------------------------------
+
+DetalleOrden.cs:
+----------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Interfaces;
+
+namespace RestauranteApp.Core.Models
+{
+    /// <summary>
+    /// Representa un ítem individual dentro de una orden (un sándwich con sus adicionales)
+    /// </summary>
+    public class DetalleOrden
+    {
+        /// <summary>
+        /// Sándwich con todos sus adicionales aplicados (patrón Decorator)
+        /// </summary>
+        public ISandwich Sandwich { get; set; }
+
+        /// <summary>
+        /// Cantidad de este ítem en la orden
+        /// </summary>
+        public int Cantidad { get; set; }
+
+        /// <summary>
+        /// Constructor del detalle de orden
+        /// </summary>
+        /// <param name="sandwich">Sándwich decorado con adicionales</param>
+        /// <param name="cantidad">Cantidad de sándwiches</param>
+        public DetalleOrden(ISandwich sandwich, int cantidad = 1)
+        {
+            Sandwich = sandwich ?? throw new ArgumentNullException(nameof(sandwich));
+            Cantidad = cantidad > 0 ? cantidad : throw new ArgumentException("La cantidad debe ser mayor a cero", nameof(cantidad));
+        }
+
+        /// <summary>
+        /// Calcula el subtotal de este detalle (precio unitario * cantidad)
+        /// </summary>
+        /// <returns>Subtotal del detalle</returns>
+        public decimal CalcularSubtotal()
+        {
+            return Sandwich.GetPrecio() * Cantidad;
+        }
+
+        /// <summary>
+        /// Obtiene la descripción completa del detalle
+        /// </summary>
+        /// <returns>Descripción formateada del sándwich y cantidad</returns>
+        public string ObtenerDescripcionCompleta()
+        {
+            var descripcion = Sandwich.GetDescripcion();
+            var precio = Sandwich.GetPrecio();
+            var subtotal = CalcularSubtotal();
+
+            if (Cantidad > 1)
+            {
+                return $"{descripcion} (${precio:F1}) x{Cantidad} = ${subtotal:F1}";
+            }
+            else
+            {
+                return $"{descripcion} = ${subtotal:F1}";
+            }
+        }
+
+        public string DescripcionCompleta => ObtenerDescripcionCompleta();
+
+        /// <summary>
+        /// Representación en string del detalle
+        /// </summary>
+        /// <returns>Descripción completa como string</returns>
+        public override string ToString()
+        {
+            return ObtenerDescripcionCompleta();
+        }
+    }
+}
+
+
+--------------------------------------------------
+
+Orden.cs:
+---------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Interfaces;
+using System.Text;
+
+namespace RestauranteApp.Core.Models
+{
+    /// <summary>
+    /// Representa una orden completa del restaurante con múltiples sándwiches
+    /// </summary>
+    public class Orden
+    {
+        private readonly List<DetalleOrden> _detalles;
+
+        /// <summary>
+        /// Número único de la orden
+        /// </summary>
+        public int NumeroOrden { get; private set; }
+
+        /// <summary>
+        /// Fecha y hora de creación de la orden
+        /// </summary>
+        public DateTime FechaCreacion { get; private set; }
+
+        /// <summary>
+        /// Lista de detalles de la orden (solo lectura)
+        /// </summary>
+        public IReadOnlyList<DetalleOrden> Detalles => _detalles.AsReadOnly();
+
+        /// <summary>
+        /// Indica si la orden está vacía
+        /// </summary>
+        public bool EstaVacia => _detalles.Count == 0;
+
+        /// <summary>
+        /// Cantidad total de ítems en la orden
+        /// </summary>
+        public int CantidadTotalItems => _detalles.Sum(d => d.Cantidad);
+
+        /// <summary>
+        /// Constructor de la orden
+        /// </summary>
+        /// <param name="numeroOrden">Número único de la orden</param>
+        public Orden(int numeroOrden = 0)
+        {
+            NumeroOrden = numeroOrden > 0 ? numeroOrden : GenerarNumeroOrden();
+            FechaCreacion = DateTime.Now;
+            _detalles = new List<DetalleOrden>();
+        }
+
+        /// <summary>
+        /// Agrega un sándwich a la orden
+        /// </summary>
+        /// <param name="sandwich">Sándwich a agregar</param>
+        /// <param name="cantidad">Cantidad de sándwiches</param>
+        public void AgregarSandwich(ISandwich sandwich, int cantidad = 1)
+        {
+            if (sandwich == null)
+                throw new ArgumentNullException(nameof(sandwich));
+
+            if (cantidad <= 0)
+                throw new ArgumentException("La cantidad debe ser mayor a cero", nameof(cantidad));
+
+            var detalle = new DetalleOrden(sandwich, cantidad);
+            _detalles.Add(detalle);
+        }
+
+        /// <summary>
+        /// Remueve un detalle específico de la orden
+        /// </summary>
+        /// <param name="indice">Índice del detalle a remover</param>
+        /// <returns>True si se removió exitosamente</returns>
+        public bool RemoverDetalle(int indice)
+        {
+            if (indice >= 0 && indice < _detalles.Count)
+            {
+                _detalles.RemoveAt(indice);
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Limpia todos los detalles de la orden
+        /// </summary>
+        public void LimpiarOrden()
+        {
+            _detalles.Clear();
+        }
+
+        /// <summary>
+        /// Calcula el total de la orden
+        /// </summary>
+        /// <returns>Precio total de todos los sándwiches</returns>
+        public decimal CalcularTotal()
+        {
+            return _detalles.Sum(detalle => detalle.CalcularSubtotal());
+        }
+
+        /// <summary>
+        /// Genera el resumen completo de la orden
+        /// </summary>
+        /// <returns>String formateado con el detalle completo</returns>
+        public string GenerarResumen()
+        {
+            if (EstaVacia)
+            {
+                return "La orden está vacía.";
+            }
+
+            var sb = new StringBuilder();
+            sb.AppendLine("==================================================================");
+
+            foreach (var detalle in _detalles)
+            {
+                sb.AppendLine(detalle.ObtenerDescripcionCompleta());
+            }
+
+            sb.AppendLine("==================================================================");
+            sb.AppendLine($"TOTAL ${CalcularTotal():F1}");
+
+            return sb.ToString();
+        }
+
+        /// <summary>
+        /// Genera un número de orden único basado en timestamp
+        /// </summary>
+        /// <returns>Número de orden único</returns>
+        private static int GenerarNumeroOrden()
+        {
+            return (int)(DateTime.Now.Ticks % int.MaxValue);
+        }
+
+        /// <summary>
+        /// Representación en string de la orden
+        /// </summary>
+        /// <returns>Resumen de la orden</returns>
+        public override string ToString()
+        {
+            return $"Orden #{NumeroOrden} - {CantidadTotalItems} ítems - Total: ${CalcularTotal():F1}";
+        }
+    }
+}
+
+
+--------------------------------------------------
+
+PrecioAdicional.cs:
+-------------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Enums;
+
+namespace RestauranteApp.Core.Models
+{
+    /// <summary>
+    /// Representa el precio de un adicional según el tamaño del sándwich
+    /// </summary>
+    public class PrecioAdicional
+    {
+        /// <summary>
+        /// Precio para sándwich pequeño (15cm)
+        /// </summary>
+        public decimal PrecioPequeno { get; set; }
+
+        /// <summary>
+        /// Precio para sándwich grande (30cm)
+        /// </summary>
+        public decimal PrecioGrande { get; set; }
+
+        /// <summary>
+        /// Constructor con precios específicos
+        /// </summary>
+        /// <param name="precioPequeno">Precio para sándwich de 15cm</param>
+        /// <param name="precioGrande">Precio para sándwich de 30cm</param>
+        public PrecioAdicional(decimal precioPequeno, decimal precioGrande)
+        {
+            PrecioPequeno = precioPequeno;
+            PrecioGrande = precioGrande;
+        }
+
+        /// <summary>
+        /// Constructor con precio único para ambos tamaños
+        /// </summary>
+        /// <param name="precioUnico">Precio aplicable a ambos tamaños</param>
+        public PrecioAdicional(decimal precioUnico)
+        {
+            PrecioPequeno = precioUnico;
+            PrecioGrande = precioUnico;
+        }
+
+        /// <summary>
+        /// Obtiene el precio según el tamaño del sándwich
+        /// </summary>
+        /// <param name="tamano">Tamaño del sándwich</param>
+        /// <returns>Precio correspondiente al tamaño</returns>
+        public decimal ObtenerPrecio(TamanoSandwich tamano)
+        {
+            return tamano switch
+            {
+                TamanoSandwich.Pequeno15cm => PrecioPequeno,
+                TamanoSandwich.Grande30cm => PrecioGrande,
+                _ => throw new ArgumentException($"Tamaño de sándwich no válido: {tamano}")
+            };
+        }
+    }
+}   
+
+
+--------------------------------------------------
+
+SandwichBase.cs:
+----------------
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using RestauranteApp.Core.Enums;
+using RestauranteApp.Core.Interfaces;
+using RestauranteApp.Core.Constants;
+
+namespace RestauranteApp.Core.Sandwiches
+{
+    /// <summary>
+    /// Clase base abstracta para todos los sándwiches
+    /// Implementa la interfaz ISandwich y proporciona funcionalidad común
+    /// </summary>
+    public abstract class SandwichBase : ISandwich
+    {
+        /// <summary>
+        /// Tipo de proteína del sándwich
+        /// </summary>
+        protected TipoProteina TipoProteina { get; }
+
+        /// <summary>
+        /// Tamaño del sándwich
+        /// </summary>
+        protected TamanoSandwich Tamano { get; }
+
+        /// <summary>
+        /// Precio base del sándwich
+        /// </summary>
+        protected decimal PrecioBase { get; }
+
+        /// <summary>
+        /// Constructor protegido para las clases derivadas
+        /// </summary>
+        /// <param name="tipoProteina">Tipo de proteína del sándwich</param>
+        /// <param name="tamano">Tamaño del sándwich</param>
+        protected SandwichBase(TipoProteina tipoProteina, TamanoSandwich tamano)
+        {
+            TipoProteina = tipoProteina;
+            Tamano = tamano;
+            PrecioBase = PreciosConstants.ObtenerPrecioBase(tipoProteina, tamano);
+        }
+
+        /// <summary>
+        /// Obtiene el nombre del sándwich basado en la proteína y tamaño
+        /// Las clases derivadas pueden sobrescribir este método para personalizar el nombre
+        /// </summary>
+        /// <returns>Nombre del sándwich</returns>
+        public virtual string GetNombre()
+        {
+            var nombreProteina = ObtenerNombreProteina();
+            var tamanoTexto = ObtenerTextoTamano();
+            return $"{nombreProteina} de {tamanoTexto}";
+        }
+
+        /// <summary>
+        /// Obtiene el precio del sándwich (solo precio base, sin adicionales)
+        /// </summary>
+        /// <returns>Precio base del sándwich</returns>
+        public virtual decimal GetPrecio()
+        {
+            return PrecioBase;
+        }
+
+        /// <summary>
+        /// Obtiene la descripción formateada del sándwich
+        /// Incluye nombre y precio base
+        /// </summary>
+        /// <returns>Descripción completa del sándwich</returns>
+        public virtual string GetDescripcion()
+        {
+            return $"{GetNombre()} (${GetPrecio():F1})";
+        }
+
+        /// <summary>
+        /// Obtiene el tipo de proteína del sándwich
+        /// </summary>
+        /// <returns>Tipo de proteína</returns>
+        public TipoProteina GetTipoProteina()
+        {
+            return TipoProteina;
+        }
+
+        /// <summary>
+        /// Obtiene el tamaño del sándwich
+        /// </summary>
+        /// <returns>Tamaño del sándwich</returns>
+        public TamanoSandwich GetTamano()
+        {
+            return Tamano;
+        }
+
+        /// <summary>
+        /// Obtiene la lista de adicionales del sándwich
+        /// Para sándwiches base, siempre retorna lista vacía
+        /// Los decoradores sobrescribirán este método
+        /// </summary>
+        /// <returns>Lista vacía para sándwiches base</returns>
+        public virtual IList<string> GetAdicionales()
+        {
+            return new List<string>();
+        }
+
+        /// <summary>
+        /// Método helper para obtener el nombre de la proteína en formato display
+        /// </summary>
+        /// <returns>Nombre de la proteína formateado</returns>
+        protected virtual string ObtenerNombreProteina()
+        {
+            return TipoProteina switch
+            {
+                TipoProteina.Pavo => "Pavo",
+                TipoProteina.Beef => "Beef",
+                TipoProteina.Pollo => "Pollo",
+                _ => TipoProteina.ToString()
+            };
+        }
+
+        /// <summary>
+        /// Método helper para obtener el texto del tamaño
+        /// </summary>
+        /// <returns>Texto descriptivo del tamaño</returns>
+        protected virtual string ObtenerTextoTamano()
+        {
+            return Tamano switch
+            {
+                TamanoSandwich.Pequeno15cm => "15 cm",
+                TamanoSandwich.Grande30cm => "30 cm",
+                _ => Tamano.ToString()
+            };
+        }
+
+        /// <summary>
+        /// Método abstracto que las clases derivadas deben implementar
+        /// para proporcionar información específica del tipo de sándwich
+        /// </summary>
+        /// <returns>Información específica del sándwich</returns>
+        public abstract string ObtenerInformacionEspecifica();
+
+        /// <summary>
+        /// Representación en string del sándwich
+        /// </summary>
+        /// <returns>Descripción del sándwich</returns>
+        public override string ToString()
+        {
+            return GetDescripcion();
+        }
+
+        /// <summary>
+        /// Método de comparación para verificar igualdad entre sándwiches
+        /// Dos sándwiches son iguales si tienen el mismo tipo de proteína y tamaño
+        /// </summary>
+        /// <param name="obj">Objeto a comparar</param>
+        /// <returns>True si son iguales</returns>
+        public override bool Equals(object obj)
+        {
+            if (obj is SandwichBase other)
+            {
+                return TipoProteina == other.TipoProteina &&
+                       Tamano == other.Tamano;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Genera hash code basado en proteína y tamaño
+        /// </summary>
+        /// <returns>Hash code del sándwich</returns>
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(TipoProteina, Tamano);
+        }
+
+        /// <summary>
+        /// Valida si el sándwich tiene una configuración válida
+        /// </summary>
+        /// <returns>True si la configuración es válida</returns>
+        public virtual bool EsConfiguracionValida()
+        {
+            return PrecioBase > 0 &&
+                   Enum.IsDefined(typeof(TipoProteina), TipoProteina) &&
+                   Enum.IsDefined(typeof(TamanoSandwich), Tamano);
+        }
+    }
+}
+
+
+--------------------------------------------------
+
